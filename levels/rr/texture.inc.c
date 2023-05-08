@@ -112,7 +112,7 @@ ALIGNED8 u8 rr_1__texture_0E007020[] = {
 ALIGNED8 u8 rr_1__texture_0E009020[] = {
 #include "levels/rr/rr_1_0xe009020_custom.rgba16.inc.c"
 };
-ALIGNED8 u8 rr_1__texture_0E017820[] = {
+[ALIGNED8 u8 rr_1__texture_0E017820[] = {
 #include "levels/rr/rr_1_0xe017820_custom.ci8.inc.c"
 };
 ALIGNED8 u8 rr_1__texture_0E018020 = {
