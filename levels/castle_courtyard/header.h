@@ -1,0 +1,60 @@
+#ifndef CASTLE_COURTYARD_HEADER_H
+#define CASTLE_COURTYARD_HEADER_H
+#include "types.h"
+#include "game/moving_texture.h"
+extern const GeoLayout Geo_castle_courtyard_1_0x2875e30[];
+extern Gfx DL_castle_courtyard_1_0xe06ef90[];
+extern Gfx DL_castle_courtyard_1_0xe0908b0[];
+extern const Collision col_castle_courtyard_1_0xe0932f0[];
+extern struct MovtexQuadCollection castle_courtyard_1_Movtex_0[];
+extern struct MovtexQuadCollection castle_courtyard_1_Movtex_1[];
+extern struct MovtexQuadCollection castle_courtyard_1_Movtex_2[];
+extern const GeoLayout Geo_castle_courtyard_2_0x2875d10[];
+extern Gfx DL_castle_courtyard_2_0xe016240[];
+extern Gfx DL_castle_courtyard_2_0xe0162f0[];
+extern Gfx DL_castle_courtyard_2_0xe019058[];
+extern const Collision col_castle_courtyard_2_0xe019af0[];
+extern struct MovtexQuadCollection castle_courtyard_2_Movtex_0[];
+extern struct MovtexQuadCollection castle_courtyard_2_Movtex_1[];
+extern struct MovtexQuadCollection castle_courtyard_2_Movtex_2[];
+extern const GeoLayout Geo_castle_courtyard_3_0x2875bf0[];
+extern Gfx DL_castle_courtyard_3_0xe01dd10[];
+extern Gfx DL_castle_courtyard_3_0xe01f300[];
+extern Gfx DL_castle_courtyard_3_0xe024648[];
+extern const Collision col_castle_courtyard_3_0xe0247b0[];
+extern struct MovtexQuadCollection castle_courtyard_3_Movtex_0[];
+extern struct MovtexQuadCollection castle_courtyard_3_Movtex_1[];
+extern struct MovtexQuadCollection castle_courtyard_3_Movtex_2[];
+extern const GeoLayout Geo_castle_courtyard_4_0x2875ad0[];
+extern Gfx DL_castle_courtyard_4_0xe010e00[];
+extern Gfx DL_castle_courtyard_4_0xe010eb0[];
+extern Gfx DL_castle_courtyard_4_0xe012f20[];
+extern const Collision col_castle_courtyard_4_0xe0139b0[];
+extern struct MovtexQuadCollection castle_courtyard_4_Movtex_0[];
+extern struct MovtexQuadCollection castle_courtyard_4_Movtex_1[];
+extern struct MovtexQuadCollection castle_courtyard_4_Movtex_2[];
+extern const LevelScript level_castle_courtyard_custom_entry[];
+extern const LevelScript local_area_castle_courtyard_1_[];
+extern const LevelScript local_objects_castle_courtyard_1_[];
+extern const LevelScript local_warps_castle_courtyard_1_[];
+extern const LevelScript local_area_castle_courtyard_2_[];
+extern const LevelScript local_objects_castle_courtyard_2_[];
+extern const LevelScript local_warps_castle_courtyard_2_[];
+extern const LevelScript local_area_castle_courtyard_3_[];
+extern const LevelScript local_objects_castle_courtyard_3_[];
+extern const LevelScript local_warps_castle_courtyard_3_[];
+extern const LevelScript local_area_castle_courtyard_4_[];
+extern const LevelScript local_objects_castle_courtyard_4_[];
+extern const LevelScript local_warps_castle_courtyard_4_[];
+extern const LevelScript level_castle_courtyard_entry[];
+extern const GeoLayout castle_courtyard_geo_000200[];
+extern const GeoLayout castle_courtyard_geo_000218[];
+extern const Gfx castle_courtyard_seg7_dl_070048B8[];
+extern const Gfx castle_courtyard_seg7_dl_07005078[];
+extern const Gfx castle_courtyard_seg7_dl_07005698[];
+extern const Gfx castle_courtyard_seg7_dl_07005938[];
+extern const Collision castle_courtyard_seg7_collision[];
+extern const MacroObject castle_courtyard_seg7_macro_objs[];
+extern const struct MovtexQuadCollection castle_courtyard_movtex_star_statue_water[];
+extern const LevelScript level_castle_courtyard_entry[];
+#endif

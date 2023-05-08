@@ -1,0 +1,55 @@
+#ifndef DDD_2_HEADER_H
+#define DDD_2_HEADER_H
+#include "types.h"
+extern Vtx VB_ddd_2_0xe004820[];
+extern Vtx VB_ddd_2_0xe0048d0[];
+extern Vtx VB_ddd_2_0xe004970[];
+extern Vtx VB_ddd_2_0xe004a20[];
+extern Vtx VB_ddd_2_0xe004af0[];
+extern Vtx VB_ddd_2_0xe004ba0[];
+extern Vtx VB_ddd_2_0xe004c50[];
+extern Vtx VB_ddd_2_0xe004ce0[];
+extern Vtx VB_ddd_2_0xe004d90[];
+extern Vtx VB_ddd_2_0xe004e40[];
+extern Vtx VB_ddd_2_0xe004ed0[];
+extern Vtx VB_ddd_2_0xe004f10[];
+extern Vtx VB_ddd_2_0xe004fe0[];
+extern Vtx VB_ddd_2_0xe0050d0[];
+extern Vtx VB_ddd_2_0xe0051c0[];
+extern Vtx VB_ddd_2_0xe0051f0[];
+extern Vtx VB_ddd_2_0xe0052a0[];
+extern Vtx VB_ddd_2_0xe005370[];
+extern Vtx VB_ddd_2_0xe005460[];
+extern Vtx VB_ddd_2_0xe005490[];
+extern Vtx VB_ddd_2_0xe005510[];
+extern Vtx VB_ddd_2_0xe005570[];
+extern Vtx VB_ddd_2_0xe005620[];
+extern Vtx VB_ddd_2_0xe005690[];
+extern Vtx VB_ddd_2_0xe0056d0[];
+extern Vtx VB_ddd_2_0xe005780[];
+extern Vtx VB_ddd_2_0xe0057f0[];
+extern Vtx VB_ddd_2_0xe005830[];
+extern Vtx VB_ddd_2_0xe0058e0[];
+extern Vtx VB_ddd_2_0xe005950[];
+extern Vtx VB_ddd_2_0xe005990[];
+extern Vtx VB_ddd_2_0xe005a40[];
+extern Vtx VB_ddd_2_0xe005ab0[];
+extern Vtx VB_ddd_2_0xe005af0[];
+extern Vtx VB_ddd_2_0xe005ba0[];
+extern Vtx VB_ddd_2_0xe005c10[];
+extern Vtx VB_ddd_2_0xe005c50[];
+extern Vtx VB_ddd_2_0xe005d00[];
+extern Vtx VB_ddd_2_0xe005d70[];
+extern Vtx VB_ddd_2_0xe005db0[];
+extern Vtx VB_ddd_2_0xe005e60[];
+extern Vtx VB_ddd_2_0xe005ed0[];
+extern u8 ddd_2__texture_0E000018[];
+extern u8 ddd_2__texture_0E001020[];
+extern u8 ddd_2__texture_0E001820[];
+extern u8 ddd_2__texture_0E002020[];
+extern u8 ddd_2__texture_0E002820[];
+extern u8 ddd_2__texture_0E003820[];
+extern Light_t Light_ddd_2_0xe000008;
+extern Ambient_t Light_ddd_2_0xe000000;
+extern Gfx DL_ddd_2_0xe005f10[];
+#endif
