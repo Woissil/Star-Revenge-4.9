@@ -1,13 +1,10 @@
 This file will serve me very much to know who did what, So that at the end I credit you
 
-Exemple :- Woissil (What you do)
-In case you have done several things, you can write on several lines (it is unlikely that this is possible)
+- Sunk : MOPs Rework, RedCoins requirements, 45 Degree Wallkicks (Probably Door port)
 
-- 
+- Flipflop_bell : Cap Timer
 
-- 
-
-- 
+- I'mYourCat : RR Fix
 
 - 
 
@@ -22,3 +19,5 @@ In case you have done several things, you can write on several lines (it is unli
 - 
 
 - 
+
+-
