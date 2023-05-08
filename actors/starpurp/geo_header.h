@@ -1,0 +1,16 @@
+extern const GeoLayout starpurp_geo[];
+extern Lights1 starpurp_Material_063_3ED452ED_c_bmp_f3d_layer1_lights;
+extern u8 starpurp_eye_rgba16[];
+extern u8 starpurp__13_ci8[];
+extern u8 starpurp__13_ci8_pal_rgba16[];
+extern Vtx starpurp_star_mesh_layer_5_vtx_0[8];
+extern Gfx starpurp_star_mesh_layer_5_tri_0[];
+extern Vtx starpurp_star_mesh_layer_1_vtx_0[12];
+extern Gfx starpurp_star_mesh_layer_1_tri_0[];
+extern Gfx mat_starpurp_Material_065_713E77D_c_bmp_f3d[];
+extern Gfx mat_revert_starpurp_Material_065_713E77D_c_bmp_f3d[];
+extern Gfx mat_starpurp_Material_063_3ED452ED_c_bmp_f3d_layer1[];
+extern Gfx mat_revert_starpurp_Material_063_3ED452ED_c_bmp_f3d_layer1[];
+extern Gfx starpurp_star_mesh_layer_5[];
+extern Gfx starpurp_star_mesh_layer_1[];
+extern Gfx starpurp_material_revert_render_settings[];

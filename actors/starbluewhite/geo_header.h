@@ -1,0 +1,15 @@
+extern const GeoLayout starbluewhite_geo[];
+extern Lights1 starbluewhite_Material_063_3ED452ED_c_bmp_f3d_layer1_lights;
+extern u8 starbluewhite_eye_rgba16[];
+extern u8 starbluewhite__16_rgba16[];
+extern Vtx starbluewhite_star_mesh_layer_5_vtx_0[8];
+extern Gfx starbluewhite_star_mesh_layer_5_tri_0[];
+extern Vtx starbluewhite_star_mesh_layer_1_vtx_0[12];
+extern Gfx starbluewhite_star_mesh_layer_1_tri_0[];
+extern Gfx mat_starbluewhite_Material_065_713E77D_c_bmp_f3d[];
+extern Gfx mat_revert_starbluewhite_Material_065_713E77D_c_bmp_f3d[];
+extern Gfx mat_starbluewhite_Material_063_3ED452ED_c_bmp_f3d_layer1[];
+extern Gfx mat_revert_starbluewhite_Material_063_3ED452ED_c_bmp_f3d_layer1[];
+extern Gfx starbluewhite_star_mesh_layer_5[];
+extern Gfx starbluewhite_star_mesh_layer_1[];
+extern Gfx starbluewhite_material_revert_render_settings[];
