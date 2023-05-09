@@ -4,9 +4,9 @@ This file will serve me very much to know who did what, So that at the end I cre
 
 - Flipflop_bell : Cap Timer
 
-- I'mYourCat : RR Fix
+- I'mYourCat : RR Fix, Actors
 
-- 
+- AgentX : Exclamation Box
 
 - 
  
