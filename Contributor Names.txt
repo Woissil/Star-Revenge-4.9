@@ -4,7 +4,7 @@ This file will serve me very much to know who did what, So that at the end I cre
 
 - Flipflop_bell : Cap Timer
 
-- I'mYourCat : RR Fix, Actors
+- I'mYourCat : RR Fix, Actors (Goomba, Koopa, Door, coin, bobomb, king bobomb, amp, heart)
 
 - AgentX : Exclamation Box
 
