@@ -1,7 +1,40 @@
 -- exclamation box, ported to Lua by Agent X
 -- credit me if you use this, also let me know if there are any issues or inaccuracies.
 
-sExclamationBoxHitbox = {
+-- Heavily modified by Sunk to be more efficent, accurate, easy to understand, and easy to use
+
+------------------------------
+------Localize functions------
+------------------------------
+
+local cutscene_object = cutscene_object
+local set_time_stop_flags = set_time_stop_flags
+local cur_obj_become_tangible = cur_obj_become_tangible
+local spawn_sync_object = spawn_sync_object
+local get_behavior_from_id = get_behavior_from_id
+local obj_copy_pos_and_angle = obj_copy_pos_and_angle
+local nearest_mario_state_to_object = nearest_mario_state_to_object
+local network_send_object = network_send_object
+local save_file_get_flags = save_file_get_flags
+local cur_obj_become_intangible = cur_obj_become_intangible
+local obj_set_model_extended = obj_set_model_extended
+local cur_obj_unhide = cur_obj_unhide
+local cur_obj_was_attacked_or_ground_pounded = cur_obj_was_attacked_or_ground_pounded
+local queue_rumble_data_object = queue_rumble_data_object
+local load_object_collision_model = load_object_collision_model
+local cur_obj_move_using_fvel_and_gravity = cur_obj_move_using_fvel_and_gravity
+local sins = sins
+local spawn_mist_particles_variable = spawn_mist_particles_variable
+local spawn_triangle_break_particles = spawn_triangle_break_particles
+local play_sound = play_sound
+local cur_obj_hide = cur_obj_hide
+
+-------------------------
+------Helper tables------
+-------------------------
+
+---@type ObjectHitbox
+local sExclamationBoxHitbox = {
     interactType = INTERACT_BREAKABLE,
     downOffset = 5,
     damageOrCoinValue = 0,
@@ -10,72 +43,45 @@ sExclamationBoxHitbox = {
     radius = 40,
     height = 30,
     hurtboxRadius = 40,
-    hurtboxHeight = 30,
+    hurtboxHeight = 30
 }
-
-----------
---models--
-----------
 
 E_MODEL_WSTAR = smlua_model_util_get_id("wstar_geo")
 
-D_8032F0C0 = { [0] = SAVE_FLAG_HAVE_WING_CAP, [1] = SAVE_FLAG_HAVE_METAL_CAP, [2] = SAVE_FLAG_HAVE_VANISH_CAP }
+local cap_flags = { [0] = SAVE_FLAG_HAVE_WING_CAP, [1] = SAVE_FLAG_HAVE_METAL_CAP, [2] = SAVE_FLAG_HAVE_VANISH_CAP }
 
-sExclamationBoxActions = {
-    [0] = function(o) exclamation_box_act_0(o) end,
-    [1] = function(o) exclamation_box_act_1(o) end,
-    [2] = function(o) exclamation_box_act_2(o) end,
-    [3] = function(o) exclamation_box_act_3(o) end,
-    [4] = function(o) exclamation_box_act_4(o) end,
-    [5] = function(o) exclamation_box_act_5(o) end,
-    [6] = function(o) exclamation_box_act_6(o) end
-}
+---@class ExclamationBoxContents
 
-function switch(param, case_table)
-    local case = case_table[param]
-    if case then return case() end
-    local def = case_table['default']
-    return def and def() or nil
-end
-
-function if_then_else(cond, if_true, if_false)
-    if cond then return if_true end
-    return if_false
-end
-
---- @param o Object
-function obj_call_action_function(o, actionFunctions)
-    local actionFunction = actionFunctions[o.oAction]
-    actionFunction(o)
-end
-
---- @param obj Object
-function obj_set_hitbox(obj, hitbox)
-    if obj == nil or hitbox == nil then return end
-    if (obj.oFlags & OBJ_FLAG_30) == 0 then
-        obj.oFlags = obj.oFlags | OBJ_FLAG_30
-
-        obj.oInteractType = hitbox.interactType
-        obj.oDamageOrCoinValue = hitbox.damageOrCoinValue
-        obj.oHealth = hitbox.health
-        obj.oNumLootCoins = hitbox.numLootCoins
-
-        cur_obj_become_tangible()
-    end
-
-    obj.hitboxRadius = obj.header.gfx.scale.x * hitbox.radius
-    obj.hitboxHeight = obj.header.gfx.scale.y * hitbox.height
-    obj.hurtboxRadius = obj.header.gfx.scale.x * hitbox.hurtboxRadius
-    obj.hurtboxHeight = obj.header.gfx.scale.y * hitbox.hurtboxHeight
-    obj.hitboxDownOffset = obj.header.gfx.scale.y * hitbox.downOffset
-end
-
--- unk0: unused
--- unk1: unused
--- unk2: *usually* spawned star id, ranges from stars 0-6
--- model: which model to use for the spawned object
--- behavior: which behavior for the object to use
+---@type ExclamationBoxContents
 local sExclamationBoxContents = {
+    --[[
+        Accessing keys is slower than accessing indicies, which is why this is like this
+        1st element: index
+        2nd element: oBehParams2ndByte
+        3rd element: oBehParams1stByte
+        4th element: model
+        5th element: behavior id
+    ]]
+    { 0, 0, 0, E_MODEL_MARIOS_WING_CAP, id_bhvWingCap },
+    { 1, 0, 0, E_MODEL_MARIOS_METAL_CAP, id_bhvMetalCap },
+    { 2, 0, 0, E_MODEL_MARIOS_CAP, id_bhvVanishCap },
+    { 3, 0, 0, E_MODEL_KOOPA_SHELL, id_bhvKoopaShell },
+    { 4, 0, 0, E_MODEL_YELLOW_COIN, id_bhvSingleCoinGetsSpawned },
+    { 5, 0, 0, E_MODEL_NONE, id_bhvThreeCoinsSpawn },
+    { 6, 0, 0, E_MODEL_NONE, id_bhvTenCoinsSpawn },
+    { 7, 0, 0, E_MODEL_1UP, id_bhv1upWalking },
+    { 8, 0, 0, E_MODEL_STAR, id_bhvSpawnedStar },
+    { 9, 0, 0, E_MODEL_1UP, id_bhv1upRunningAway },
+    { 10, 0, 1, E_MODEL_STAR, id_bhvSpawnedStar },
+    { 11, 0, 2, E_MODEL_STAR, id_bhvSpawnedStar },
+    { 12, 0, 3, E_MODEL_STAR, id_bhvSpawnedStar },
+    { 13, 0, 4, E_MODEL_STAR, id_bhvSpawnedStar },
+    { 14, 0, 5, E_MODEL_WSTAR, id_bhvSpawnedStar },
+    { 15, 0, 5, E_MODEL_WSTAR, id_bhvSpawnedStar },
+    { 16, 0, 5, E_MODEL_WSTAR, id_bhvSpawnedStar },
+    { 17, 0, 5, E_MODEL_WSTAR, id_bhvSpawnedStar },
+    { 99, 0, 0, E_MODEL_NONE, nil }
+
     [0] =  { unk0 = 0,  unk1 = 0, unk2 = 0, model = E_MODEL_MARIOS_WING_CAP,  behavior = id_bhvWingCap },
     [1] =  { unk0 = 1,  unk1 = 0, unk2 = 0, model = E_MODEL_MARIOS_METAL_CAP, behavior = id_bhvMetalCap },
     [2] =  { unk0 = 2,  unk1 = 0, unk2 = 0, model = E_MODEL_MARIOS_CAP,       behavior = id_bhvVanishCap },
@@ -95,221 +101,419 @@ local sExclamationBoxContents = {
     [16] = { unk0 = 16, unk1 = 0, unk2 = 0, model = E_MODEL_BOBOMB_BUDDY,             behavior = id_bhvBobombBuddyOpensCannon },
     [17] = { unk0 = 17, unk1 = 0, unk2 = 15, model = E_MODEL_STAR,             behavior = id_bhvWarp },
     [18] = { unk0 = 99, unk1 = 0, unk2 = 0, model = 0,                        behavior = nil }
-    -- [15] = { unk0 = 99, unk1 = 0, unk2 = 0, model = E_MODEL_CHUCKYA,          behavior = id_bhvChuckya } -- custom
 }
+
+----------------------------
+------Helper functions------
+----------------------------
+
+local function switch(param, case_table)
+    local case = case_table[param]
+    if case then return case() end
+    local def = case_table['default']
+    return def and def() or nil
+end
+
+---@param obj Object
+local function star_spawn_cutscene(obj)
+    cutscene_object(CUTSCENE_STAR_SPAWN, obj)
+    gMarioStates[0].freeze = 60
+    set_time_stop_flags(TIME_STOP_ENABLED | TIME_STOP_MARIO_AND_DOORS)
+    obj.activeFlags = obj.activeFlags | ACTIVE_FLAG_INITIATED_TIME_STOP
+end
+
+--- @param obj Object
+--- @param hitbox ObjectHitbox
+local function obj_set_hitbox(obj, hitbox)
+    if not obj or not hitbox then return end
+    -- As far as I can tell, this is used to 
+    -- force the hitboxes to be set only once
+    if (obj.oFlags & OBJ_FLAG_30) == 0 then
+        obj.oFlags = obj.oFlags | OBJ_FLAG_30
+
+        obj.oInteractType = hitbox.interactType
+        obj.oDamageOrCoinValue = hitbox.damageOrCoinValue
+        obj.oHealth = hitbox.health
+        obj.oNumLootCoins = hitbox.numLootCoins
+
+        cur_obj_become_tangible()
+    end
+
+    obj.hitboxRadius = obj.header.gfx.scale.x * hitbox.radius
+    obj.hitboxHeight = obj.header.gfx.scale.y * hitbox.height
+    obj.hurtboxRadius = obj.header.gfx.scale.x * hitbox.hurtboxRadius
+    obj.hurtboxHeight = obj.header.gfx.scale.y * hitbox.hurtboxHeight
+    obj.hitboxDownOffset = obj.header.gfx.scale.y * hitbox.downOffset
+end
 
 --- @param parent Object
 --- @param model ModelExtendedId
---- @param behavior BehaviorId
-function spawn_object(parent, model, behavior)
-    local obj = spawn_sync_object(
-        behavior,
-        model,
-        0, 0, 0,
+--- @param behavior BehaviorId | Pointer_BehaviorScript
+local function spawn_object(parent, model, behavior)
+    if not parent then return nil end
+    local obj = spawn_sync_object(behavior, model, parent.oPosX, parent.oPosY, parent.oPosZ,
         --- @param o Object
         function(o)
-            o.parentObj = parent
+            -- Stars tend to break if they get assigned a parent object
+            if o.behavior ~= get_behavior_from_id(id_bhvSpawnedStar) then
+                o.parentObj = parent
+            end
         end
     )
+    if not obj then print("failed spawn"); return nil end
 
     obj_copy_pos_and_angle(obj, parent)
 
     return obj
 end
 
---- @param o Object
-function exclamation_box_act_0(o)
-    o.oExclamationBoxForce = 0
-    if o.oBehParams2ndByte < 3 then
-        o.oAnimState = o.oBehParams2ndByte
-        if (save_file_get_flags() & D_8032F0C0[o.oBehParams2ndByte]) ~= 0
-            or ((o.oBehParams >> 24) & 0xFF) ~= 0 then
-            o.oAction = 2
+
+--- @param m MarioState
+--- @param model ModelExtendedId
+local function exclamation_replace_model(m, model)
+    -- Not sure when m will be nil, but better safe
+    if not m then return model end
+    switch(model, {
+        [E_MODEL_MARIOS_CAP] = function()              return m.character.capModelId end,
+        [E_MODEL_MARIOS_METAL_CAP] = function()        return m.character.capMetalModelId end,
+        [E_MODEL_MARIOS_WING_CAP] = function()         return m.character.capWingModelId end,
+        [E_MODEL_MARIOS_WINGED_METAL_CAP] = function() return m.character.capMetalWingModelId end
+    })
+    return model
+end
+
+--- @param exclamation_box_obj Object
+--- @param desired_index number
+--- @return boolean
+local function exclamation_box_spawn_contents(exclamation_box_obj, desired_index)
+    local nearest_mario_state = nearest_mario_state_to_object(exclamation_box_obj)
+    -- No way for this to be nil, but if it is, restart the function
+    if not nearest_mario_state then return false end
+    local nearest_mario_object = nearest_mario_state.marioObj
+
+    if exclamation_box_obj.oExclamationBoxForce ~= 0 then
+        return true
+    end
+
+    local spawned_object = nil
+    local model = nil
+    ---@param value ExclamationBoxContents
+    for _, value in ipairs(sExclamationBoxContents) do
+        -- The 2nd byte of the exclamation box determines what objects spawn
+        if desired_index == value[1] then
+            model = exclamation_replace_model(nearest_mario_state, value[4])
+
+            spawned_object = spawn_object(exclamation_box_obj, model, value[5])
+            if spawned_object then
+                spawned_object.oVelY = 20.0
+                spawned_object.oForwardVel = 3.0
+                if nearest_mario_object then
+                    spawned_object.oMoveAngleYaw = nearest_mario_object.oMoveAngleYaw
+                    spawned_object.globalPlayerIndex = nearest_mario_object.globalPlayerIndex
+                end
+                -- For some reason, without a parent object, stars don't play their cutscene naturally
+                if spawned_object.behavior == get_behavior_from_id(id_bhvSpawnedStar) then
+                    star_spawn_cutscene(spawned_object)
+                end
+            else
+                return false
+            end
+
+            -- The 1st byte of the exclamation box's behavior params is indeed used, even if it's not in the code.
+            -- This is a hacky fix since I don't know what's actually being done
+            if (exclamation_box_obj >> 24) & 0xFF ~= 0 then
+                spawned_object.oBehParams = spawned_object.oBehParams | (exclamation_box_obj.oBehParams & 0xFF000000)
+            else
+                spawned_object.oBehParams = spawned_object.oBehParams | value[3] << 24
+            end
+            -- I can only assume that unk1 was intended to be used to set the 2nd byte
+            spawned_object.oBehParams2ndByte = value[2]
+            -- Allow stars reappear if they ever despawn
+            if value[4] == E_MODEL_STAR then
+                exclamation_box_obj.oFlags = exclamation_box_obj.oFlags | OBJ_FLAG_PERSISTENT_RESPAWN
+                spawned_object.oFlags = spawned_object.oFlags | OBJ_FLAG_PERSISTENT_RESPAWN
+            end
+
+            -- Send non-star events, since sending them causes jank
+            -- ! However, the object's oForwardVel and oVelY don't seem to sync up
+            if value[5] ~= id_bhvSpawnedStar and spawned_object then
+                network_send_object(spawned_object, true)
+            end
+            break
+        end
+    end
+    return true
+end
+
+---@return boolean
+local function is_current_area_sync_valid()
+    local np
+    for i = 0, MAX_PLAYERS - 1, 1 do
+        np = gNetworkPlayers[i]
+        if np and np.connected and (not np.currLevelSyncValid or not np.currAreaSyncValid) then
+            return false
+        end
+    end
+    return true
+end
+
+-------------------
+------Actions------
+-------------------
+
+local EXCLAMATION_BOX_ACT_INITIALIZE = 0
+local EXCLAMATION_BOX_ACT_NEED_CAPS = 1
+local EXCLAMATION_BOX_ACT_IDLE = 2
+local EXCLAMATION_BOX_ACT_BREAKING = 3
+local EXCLAMATION_BOX_ACT_BROKEN = 4
+local EXCLAMATION_BOX_ACT_AWAITING_RESPAWN = 5
+local EXCLAMATION_BOX_ACT_AWAITING_DELETION = 6
+
+----------------------------
+------Action Behaviors------
+----------------------------
+
+-- Initializes the exclamation box
+--- @param obj Object
+local function exclamation_box_act_initialize(obj)
+    obj.oExclamationBoxForce = 0
+    -- A 2nd byte of 0, 1, and 2 refer to different cap blocks
+    if obj.oBehParams2ndByte < 3 then
+        obj.oAnimState = obj.oBehParams2ndByte
+        -- Determines if cap switches have been pressed
+        if (save_file_get_flags() & cap_flags[obj.oBehParams2ndByte]) ~= 0
+            -- If a cap box has a first byte, it will always be active
+            or ((obj.oBehParams >> 24) & 0xFF) ~= 0 then
+            obj.oAction = EXCLAMATION_BOX_ACT_IDLE
         else
-            o.oAction = 1
+            obj.oAction = EXCLAMATION_BOX_ACT_NEED_CAPS
         end
     else
-        o.oAnimState = 3
-        o.oAction = 2
+        -- Yellow block
+        obj.oAnimState = 3
+        obj.oAction = EXCLAMATION_BOX_ACT_IDLE
     end
 end
 
---- @param o Object
-function exclamation_box_act_1(o)
+-- If the exclamation box is a cap box and the cap switches aren't pressed, go here
+--- @param obj Object
+local function exclamation_box_act_need_caps(obj)
     cur_obj_become_intangible()
-    if o.oTimer == 0 then
-        spawn_object(o, E_MODEL_EXCLAMATION_POINT, id_bhvRotatingExclamationMark)
-        obj_set_model_extended(o, E_MODEL_EXCLAMATION_BOX_OUTLINE)
+    if obj.oTimer == 0 then
+        spawn_object(obj, E_MODEL_EXCLAMATION_POINT, id_bhvRotatingExclamationMark)
+        obj_set_model_extended(obj, E_MODEL_EXCLAMATION_BOX_OUTLINE)
     end
-    if (save_file_get_flags() & D_8032F0C0[o.oBehParams2ndByte]) ~= 0
-        or ((o.oBehParams >> 24) & 0xFF) ~= 0 then
-        o.oAction = 2
-        obj_set_model_extended(o, E_MODEL_EXCLAMATION_BOX)
+    if (save_file_get_flags() & cap_flags[obj.oBehParams2ndByte]) ~= 0
+        -- Always false since cap boxes do not have a first byte
+        -- However romhacks can take advantage of this
+        or ((obj.oBehParams >> 24) & 0xFF) ~= 0 then
+        obj.oAction = EXCLAMATION_BOX_ACT_IDLE
+        obj_set_model_extended(obj, E_MODEL_EXCLAMATION_BOX)
     end
 end
 
---- @param o Object
-function exclamation_box_act_2(o)
-    obj_set_hitbox(o, sExclamationBoxHitbox)
-    if o.oTimer == 0 then
+-- Wait until attacked
+--- @param obj Object
+local function exclamation_box_act_idle(obj)
+    obj_set_hitbox(obj, sExclamationBoxHitbox)
+    if obj.oTimer == 0 then
+        -- If previously hidden, stop being hidden
         cur_obj_unhide()
         cur_obj_become_tangible()
-        o.oInteractStatus = 0
-        o.oPosY = o.oHomeY
-        o.oGraphYOffset = 0
+        obj.oInteractStatus = 0
+        obj.oPosY = obj.oHomeY
+        obj.oGraphYOffset = 0
     end
 
-    local isNearest = nearest_mario_state_to_object(o) == gMarioStates[0]
-    if o.oExclamationBoxForce or isNearest then
-        if o.oExclamationBoxForce ~= 0 or (isNearest and cur_obj_was_attacked_or_ground_pounded() ~= 0) then
-            if o.oExclamationBoxForce == 0 then
-                o.oExclamationBoxForce = 1
-                network_send_object(o, true)
-                o.oExclamationBoxForce = 0
+    local isNearest = nearest_mario_state_to_object(obj) == gMarioStates[0]
+    -- All of this checking for oExclamationBoxForce is strange but necessary
+    -- oExclamationBoxForce really is just a check to see if the box was hit.
+    if obj.oExclamationBoxForce ~= 0 or isNearest then
+        if obj.oExclamationBoxForce ~= 0 or (isNearest and cur_obj_was_attacked_or_ground_pounded() ~= 0) then
+            -- If it wasn't attacked before, it is now
+            if obj.oExclamationBoxForce == 0 then
+                obj.oExclamationBoxForce = 1
+                if is_current_area_sync_valid() then
+                    network_send_object(obj, true)
+                end
+                obj.oExclamationBoxForce = 0
             end
+            -- Start breaking the exclamation box
             cur_obj_become_intangible()
-            o.oExclamationBoxUnkFC = 0x4000
-            o.oVelY = 30
-            o.oGravity = -8
-            o.oFloorHeight = o.oPosY
-            o.oAction = 3
-            queue_rumble_data_object(o, 5, 80)
+            obj.oExclamationBoxUnkFC = 0x4000
+            obj.oVelY = 30
+            obj.oGravity = -8
+            obj.oFloorHeight = obj.oPosY
+            obj.oAction = EXCLAMATION_BOX_ACT_BREAKING
+            queue_rumble_data_object(obj, 5, 80)
         end
     end
     load_object_collision_model()
 end
 
---- @param o Object
-function exclamation_box_act_3(o)
+-- When the box has been attacked and now needs to start breaking
+--- @param obj Object
+local function exclamation_box_act_breaking(obj)
     cur_obj_move_using_fvel_and_gravity()
-    if o.oVelY < 0 then
-        o.oVelY = 0
-        o.oGravity = 0
+    if obj.oVelY < 0 then
+        obj.oVelY = 0
+        obj.oGravity = 0
     end
-    o.oExclamationBoxUnkF8 = (sins(o.oExclamationBoxUnkFC) + 1) * 0.3 + 0.0
-    o.oExclamationBoxUnkF4 = (-sins(o.oExclamationBoxUnkFC) + 1) * 0.5 + 1.0
-    o.oGraphYOffset = (-sins(o.oExclamationBoxUnkFC) + 1) * 26.0
-    o.oExclamationBoxUnkFC = o.oExclamationBoxUnkFC + 0x1000
-    o.header.gfx.scale.x = o.oExclamationBoxUnkF4 * 2
-    o.header.gfx.scale.y = o.oExclamationBoxUnkF8 * 2
-    o.header.gfx.scale.z = o.oExclamationBoxUnkF4 * 2
-    if o.oTimer == 7 then
-        o.oAction = 4
+    -- A whole bunch of things which all make the box appear smaller per frame
+    obj.oExclamationBoxUnkF8 = (sins(obj.oExclamationBoxUnkFC) + 1) * 0.3 + 0.0
+    obj.oExclamationBoxUnkF4 = (-sins(obj.oExclamationBoxUnkFC) + 1) * 0.5 + 1.0
+    obj.oGraphYOffset = (-sins(obj.oExclamationBoxUnkFC) + 1) * 26.0
+    obj.oExclamationBoxUnkFC = obj.oExclamationBoxUnkFC + 0x1000
+    obj.header.gfx.scale.x = obj.oExclamationBoxUnkF4 * 2
+    obj.header.gfx.scale.y = obj.oExclamationBoxUnkF8 * 2
+    obj.header.gfx.scale.z = obj.oExclamationBoxUnkF4 * 2
+    if obj.oTimer == 7 then
+        obj.oAction = EXCLAMATION_BOX_ACT_BROKEN
     end
 end
 
---- @param m MarioState
---- @param model ModelExtendedId
-function exclamation_replace_model(m, model)
-    if m == nil then return model end
-    switch(model, {
-        [E_MODEL_MARIOS_CAP] = function()              return m.character.capModelId end,
-        [E_MODEL_MARIOS_METAL_CAP] = function()        return m.character.capMetalModelId end,
-        [E_MODEL_MARIOS_WING_CAP] = function()         return m.character.capWingModelId end,
-        [E_MODEL_MARIOS_WINGED_METAL_CAP] = function()         return m.character.capMetalWingModelId end,
+-- What happens when the box is broken
+--- @param obj Object
+local function exclamation_box_act_broken(obj)
+    spawn_mist_particles_variable(0, 0, 46)
+    spawn_triangle_break_particles(20, 139, 0.3, obj.oAnimState)
+    play_sound(SOUND_GENERAL_BREAK_BOX, obj.header.gfx.cameraToObject)
 
-    })
-    return model
-end
-
---- @param o Object
-function exclamation_box_spawn_contents(o, a0, a1)
-    local marioState = nearest_mario_state_to_object(o)
-    local player = nil
-    if marioState ~= nil then player = marioState.marioObj end
-    local sp1C = nil
-
-    if o.oExclamationBoxForce ~= 0 then
+    local did_object_spawn = exclamation_box_spawn_contents(obj, obj.oBehParams2ndByte)
+    if not did_object_spawn then
+        -- Do it again
+        exclamation_box_act_broken(obj)
         return
     end
 
-    local model = exclamation_replace_model(marioState, a0.model)
-
-    -- simplified from the original code
-    sp1C = spawn_object(o, model, a0.behavior)
-    if sp1C ~= nil then
-        sp1C.oVelY = 20
-        sp1C.oForwardVel = 3
-        if player ~= nil then
-            sp1C.oMoveAngleYaw = player.oMoveAngleYaw
-            sp1C.globalPlayerIndex = player.globalPlayerIndex
-        end
+    -- The 2nd byte of all cap boxes is below 2
+    -- However, the third byte is a shell box, which naturally respawns in coop
+    -- This can be turned off with gBehaviorValues
+    local threshold = 3
+    if gBehaviorValues.RespawnShellBoxes == 0 then
+        threshold = 2
     end
-    o.oBehParams = o.oBehParams | a0.unk2 << 24
-    if a0.model == E_MODEL_STAR then
-        o.oFlags = o.oFlags | 0x4000
-    end
-end
 
---- @param o Object
-function exclamation_box_act_4(o)
-    exclamation_box_spawn_contents(o, sExclamationBoxContents[o.oBehParams2ndByte], o.oBehParams2ndByte)
-    spawn_mist_particles_variable(0, 0, 46)
-    spawn_triangle_break_particles(20, 139, 0.3, o.oAnimState)
-    play_sound(SOUND_GENERAL_BREAK_BOX, o.header.gfx.cameraToObject)
-    if o.oBehParams2ndByte <= 3 then
-        o.oAction = 5
+    if obj.oBehParams2ndByte <= threshold then
+        obj.oAction = EXCLAMATION_BOX_ACT_AWAITING_RESPAWN
         cur_obj_hide()
     else
-        o.oAction = 6
+        obj.oAction = EXCLAMATION_BOX_ACT_AWAITING_DELETION
         cur_obj_become_intangible()
         cur_obj_hide()
     end
 end
 
---- @param o Object
-function exclamation_box_act_5(o)
-    o.oExclamationBoxForce = 0
-    if o.oTimer > 300 then
-        o.oAction = 2
+-- Cap boxes respawn
+-- Shell boxes do respawn in coop naturally
+--- @param obj Object
+local function exclamation_box_act_awaiting_respawn(obj)
+    obj.oExclamationBoxForce = 0
+    if obj.oTimer > 300 then
+        obj.oAction = EXCLAMATION_BOX_ACT_IDLE
         -- sync_object_forget_last_reliable_packet(o.oSyncID)
     end
 end
 
---- @param o Object
-function exclamation_box_act_6(o)
-    o.oExclamationBoxForce = 0
-    if (o.oTimer > 1000) then
-        obj_mark_for_deletion(o)
+-- Non-cap boxes don't respawn
+--- @param obj Object
+local function exclamation_box_act_awaiting_deletion(obj)
+    obj.oExclamationBoxForce = 0
+    -- No reason for it to take so long to delete the object
+    if obj.oTimer > 1000 then
+        obj_mark_for_deletion(obj)
     end
 end
 
---- @param o Object
-function bhv_exclamation_box_init(o)
-    o.oFlags = (OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE | OBJ_FLAG_SET_FACE_YAW_TO_MOVE_YAW | OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE)
-    o.collisionData = gGlobalObjectCollisionData.exclamation_box_outline_seg8_collision_08025F78
-    o.oCollisionDistance = 300
-    o.oHomeX = o.oPosX
-    o.oHomeY = o.oPosY
-    o.oHomeZ = o.oPosZ
+---------------------
+------Behaviors------
+---------------------
 
-    o.areaTimerType = AREA_TIMER_TYPE_MAXIMUM
-    o.areaTimer = 0
-    o.areaTimerDuration = 300
+local sExclamationBoxActions = {
+    [EXCLAMATION_BOX_ACT_INITIALIZE] = function(o) exclamation_box_act_initialize(o) end,
+    [EXCLAMATION_BOX_ACT_NEED_CAPS] = function(o) exclamation_box_act_need_caps(o) end,
+    [EXCLAMATION_BOX_ACT_IDLE] = function(o) exclamation_box_act_idle(o) end,
+    [EXCLAMATION_BOX_ACT_BREAKING] = function(o) exclamation_box_act_breaking(o) end,
+    [EXCLAMATION_BOX_ACT_BROKEN] = function(o) exclamation_box_act_broken(o) end,
+    [EXCLAMATION_BOX_ACT_AWAITING_RESPAWN] = function(o) exclamation_box_act_awaiting_respawn(o) end,
+    [EXCLAMATION_BOX_ACT_AWAITING_DELETION] = function(o) exclamation_box_act_awaiting_deletion(o) end
+}
 
-    network_init_object(o, true, { "oExclamationBoxForce", "areaTimer" })
+--- @param obj Object
+--- @param actionFunctions table
+local function obj_call_action_function(obj, actionFunctions)
+    ---@type function
+    local actionFunction = actionFunctions[obj.oAction]
+    -- On object init, it always calls action 0 (initialize)
+    actionFunction(obj)
 end
 
---- @param o Object
-function bhv_exclamation_box_loop(o)
+--- @param obj Object
+function bhv_custom_exclamation_box_init(obj)
+    obj.oFlags = (OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE | OBJ_FLAG_SET_FACE_YAW_TO_MOVE_YAW | OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE)
+    obj.collisionData = gGlobalObjectCollisionData.exclamation_box_outline_seg8_collision_08025F78
+    obj.oCollisionDistance = 300
+    obj.oHomeX = obj.oPosX
+    obj.oHomeY = obj.oPosY
+    obj.oHomeZ = obj.oPosZ
+
+    obj.areaTimerType = AREA_TIMER_TYPE_MAXIMUM
+    obj.areaTimer = 0
+    obj.areaTimerDuration = 300
+
+    network_init_object(obj, false, { "oExclamationBoxForce", "areaTimer" })
+end
+
+--- @param obj Object
+function bhv_custom_exclamation_box_loop(obj)
     cur_obj_scale(2)
-    obj_call_action_function(o, sExclamationBoxActions)
+    obj_call_action_function(obj, sExclamationBoxActions)
 end
 
-id_bhvExclamationBox = hook_behavior(id_bhvExclamationBox, OBJ_LIST_SURFACE, true, bhv_exclamation_box_init, bhv_exclamation_box_loop)
+id_bhvExclamationBox = hook_behavior(id_bhvExclamationBox, OBJ_LIST_SURFACE, true, bhv_custom_exclamation_box_init, bhv_custom_exclamation_box_loop, "bhvExclamationBox")
 
-function update()
-    if gNetworkPlayers[0].currAreaSyncValid and obj_get_next_with_same_behavior_id(obj_get_first_with_behavior_id(id_bhvExclamationBox)) == nil then
-        spawn_sync_object(
-            id_bhvExclamationBox,
-            E_MODEL_EXCLAMATION_BOX,
-            0, 1050, 0,
-            --- @param o Object
-            function(o)
-                o.oBehParams2ndByte = 15
-            end
-        )
+-- Small api that lets other mods modify the contents during gameplay
+_G.ExclamationBox = {
+    --- Adds an entry to the exclamation box's contents table
+    ---@param behavior_id BehaviorId
+    ---@param model ModelExtendedId
+    ---@param oBehParams2ndByte integer
+    ---@param oBehParams1stByte integer
+    addEntry = function (behavior_id, model, oBehParams2ndByte, oBehParams1stByte)
+        local highest_index = #sExclamationBoxContents
+        table.insert(sExclamationBoxContents, highest_index, {highest_index - 1, oBehParams2ndByte, oBehParams1stByte, model, behavior_id})
+    end,
+
+    --- Removes an entry from the exclamaiton box's contents table
+    ---@param index any
+    removeEntry = function (index)
+        if sExclamationBoxContents[index] == sExclamationBoxContents[#sExclamationBoxContents] then
+            index = index - 1
+        end
+        if not sExclamationBoxContents[index] then
+            print("[Exclamation Box Log]: Index not found (removeEntry)")
+            return
+        end
+        table.remove(sExclamationBoxContents, index)
+    end,
+
+    --- Gets the entry in the exclamation box's contents table.
+    --- The indicies in the table that gets returned will always be in the same order:
+    --- content index, oBehParams2ndByte, oBehParams1stByte, model, behavior id
+    ---@param index any
+    ---@return table | nil
+    getEntry = function (index)
+        if sExclamationBoxContents[index] == nil then
+            print("[Exclamation Box Log]: Index not found (getEntry)")
+            return nil
+        end
+        local contents = sExclamationBoxContents[index]
+        return contents
+    end,
+
+    --- Gets the length of the contents table.
+    ---@return number
+    getContentsTableLength = function ()
+        return #sExclamationBoxContents
     end
-end
-
-hook_event(HOOK_UPDATE, update)
+}
