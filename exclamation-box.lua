@@ -77,30 +77,10 @@ local sExclamationBoxContents = {
     { 12, 0, 3, E_MODEL_STAR, id_bhvSpawnedStar },
     { 13, 0, 4, E_MODEL_STAR, id_bhvSpawnedStar },
     { 14, 0, 5, E_MODEL_WSTAR, id_bhvSpawnedStar },
-    { 15, 0, 5, E_MODEL_WSTAR, id_bhvSpawnedStar },
-    { 16, 0, 5, E_MODEL_WSTAR, id_bhvSpawnedStar },
-    { 17, 0, 5, E_MODEL_WSTAR, id_bhvSpawnedStar },
+    { 15, 0, 15, E_MODEL_WSTAR, id_bhvSpawnedStar },
+    { 16, 0, 0, E_MODEL_BOBOMB_BUDDY, id_bhvBobombBuddyOpensCannon },
+    { 15, 0, 15, E_MODEL_STAR, id_bhvWarp },
     { 99, 0, 0, E_MODEL_NONE, nil }
-
-    [0] =  { unk0 = 0,  unk1 = 0, unk2 = 0, model = E_MODEL_MARIOS_WING_CAP,  behavior = id_bhvWingCap },
-    [1] =  { unk0 = 1,  unk1 = 0, unk2 = 0, model = E_MODEL_MARIOS_METAL_CAP, behavior = id_bhvMetalCap },
-    [2] =  { unk0 = 2,  unk1 = 0, unk2 = 0, model = E_MODEL_MARIOS_CAP,       behavior = id_bhvVanishCap },
-    [3] =  { unk0 = 3,  unk1 = 0, unk2 = 0, model = E_MODEL_KOOPA_SHELL,      behavior = id_bhvKoopaShell },
-    [4] =  { unk0 = 4,  unk1 = 0, unk2 = 0, model = E_MODEL_YELLOW_COIN,      behavior = id_bhvSingleCoinGetsSpawned },
-    [5] =  { unk0 = 5,  unk1 = 0, unk2 = 0, model = E_MODEL_NONE,             behavior = id_bhvThreeCoinsSpawn },
-    [6] =  { unk0 = 6,  unk1 = 0, unk2 = 0, model = E_MODEL_NONE,             behavior = id_bhvTenCoinsSpawn },
-    [7] =  { unk0 = 7,  unk1 = 0, unk2 = 0, model = E_MODEL_1UP,              behavior = id_bhv1upWalking },
-    [8] =  { unk0 = 8,  unk1 = 0, unk2 = 0, model = E_MODEL_STAR,             behavior = id_bhvSpawnedStar },
-    [9] =  { unk0 = 9,  unk1 = 0, unk2 = 0, model = E_MODEL_1UP,              behavior = id_bhv1upRunningAway },
-    [10] = { unk0 = 10, unk1 = 0, unk2 = 1, model = E_MODEL_STAR,             behavior = id_bhvSpawnedStar },
-    [11] = { unk0 = 11, unk1 = 0, unk2 = 2, model = E_MODEL_STAR,             behavior = id_bhvSpawnedStar },
-    [12] = { unk0 = 12, unk1 = 0, unk2 = 3, model = E_MODEL_STAR,             behavior = id_bhvSpawnedStar },
-    [13] = { unk0 = 13, unk1 = 0, unk2 = 4, model = E_MODEL_STAR,             behavior = id_bhvSpawnedStar },
-    [14] = { unk0 = 14, unk1 = 0, unk2 = 5, model = E_MODEL_WSTAR,             behavior = id_bhvSpawnedStar },
-    [15] = { unk0 = 15, unk1 = 0, unk2 = 0, model = E_MODEL_WF_BREAKABLE_WALL_RIGHT,             behavior = id_bhvWfBreakableWallRight },
-    [16] = { unk0 = 16, unk1 = 0, unk2 = 0, model = E_MODEL_BOBOMB_BUDDY,             behavior = id_bhvBobombBuddyOpensCannon },
-    [17] = { unk0 = 17, unk1 = 0, unk2 = 15, model = E_MODEL_STAR,             behavior = id_bhvWarp },
-    [18] = { unk0 = 99, unk1 = 0, unk2 = 0, model = 0,                        behavior = nil }
 }
 
 ----------------------------
