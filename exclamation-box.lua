@@ -47,6 +47,7 @@ local sExclamationBoxHitbox = {
 }
 
 local cap_flags = { [0] = SAVE_FLAG_HAVE_WING_CAP, [1] = SAVE_FLAG_HAVE_METAL_CAP, [2] = SAVE_FLAG_HAVE_VANISH_CAP, [3] = 1 << 29 }
+local E_MODEL_WSTAR = smlua_model_util_get_id("wstar_geo")
 
 ---@class ExclamationBoxContents
 
