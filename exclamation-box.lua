@@ -46,9 +46,7 @@ local sExclamationBoxHitbox = {
     hurtboxHeight = 30
 }
 
-E_MODEL_WSTAR = smlua_model_util_get_id("wstar_geo")
-
-local cap_flags = { [0] = SAVE_FLAG_HAVE_WING_CAP, [1] = SAVE_FLAG_HAVE_METAL_CAP, [2] = SAVE_FLAG_HAVE_VANISH_CAP }
+local cap_flags = { [0] = SAVE_FLAG_HAVE_WING_CAP, [1] = SAVE_FLAG_HAVE_METAL_CAP, [2] = SAVE_FLAG_HAVE_VANISH_CAP, [3] = 1 << 29 }
 
 ---@class ExclamationBoxContents
 
@@ -77,10 +75,34 @@ local sExclamationBoxContents = {
     { 12, 0, 3, E_MODEL_STAR, id_bhvSpawnedStar },
     { 13, 0, 4, E_MODEL_STAR, id_bhvSpawnedStar },
     { 14, 0, 5, E_MODEL_WSTAR, id_bhvSpawnedStar },
-    { 15, 0, 15, E_MODEL_WSTAR, id_bhvSpawnedStar },
-    { 16, 0, 0, E_MODEL_BOBOMB_BUDDY, id_bhvBobombBuddyOpensCannon },
-    { 15, 0, 15, E_MODEL_STAR, id_bhvWarp },
-    { 99, 0, 0, E_MODEL_NONE, nil }
+    { 15, 0, 0, E_MODEL_GOOMBA,  id_bhvGoomba },
+    { 16, 0, 3, E_MODEL_FLYGUY,  id_bhvFlyGuy },
+    { 17, 0, 3, E_MODEL_AMP,  id_bhvCirclingAmp },
+    { 18, 0, 3, E_MODEL_CHUCKYA,  id_bhvChuckya },
+    { 19, 0, 3, E_MODEL_BLACK_BOBOMB,  id_bhvBobomb },
+    { 20, 0, 3, E_MODEL_RED_COIN,  id_bhvRedCoin },
+    { 21, 0, 3, E_MODEL_BLUE_COIN,  id_bhvMovingBlueCoin },
+    { 22, 0, 3, E_MODEL_PIRANHA_PLANT,  id_bhvPiranhaPlant },
+    { 23, 0, 3, E_MODEL_KOOPA_WITH_SHELL,  id_bhvKoopa },
+    { 24, 0, 3, E_MODEL_WHOMP,  id_bhvWhompKingBoss },
+    { 25, 0, 3, E_MODEL_KING_BOBOMB,  id_bhvKingBobomb },
+    { 26, 0, 3, E_MODEL_BOWLING_BALL,  id_bhvFireSpitter },
+    { 27, 0, 3, E_MODEL_BOO,  id_bhvGhostHuntBoo },
+    { 28, 0, 3, E_MODEL_MAD_PIANO,  id_bhvMadPiano },
+    { 29, 0, 3, E_MODEL_NONE,  id_bhvCoinFormation },
+    { 30, 0, 3, E_MODEL_BULLY,  id_bhvSmallBully },
+    { 31, 0, 3, E_MODEL_SNUFIT,  id_bhvSnufit },
+    { 32, 0, 3, E_MODEL_SCUTTLEBUG,  id_bhvScuttlebug },
+    { 33, 0, 3, E_MODEL_SPINDRIFT,  id_bhvSpindrift },
+    { 34, 0, 0, E_MODEL_MARIOS_WING_CAP,  id_bhvWingCap },
+    { 35, 0, 0, E_MODEL_MARIOS_METAL_CAP,  id_bhvMetalCap },
+    { 36, 0, 0, E_MODEL_MARIOS_CAP,  id_bhvVanishCap },
+    { 37, 0, 0, E_MODEL_HEAVE_HO,  id_bhvHeaveHo },
+    { 38, 0, 0, E_MODEL_WF_BREAKABLE_WALL_RIGHT,  id_bhvWfBreakableWallRight },
+    { 39, 0, 0, E_MODEL_NONE, id_bhvBoo }, --idk what the heck this is
+    { 40, 0, 0, E_MODEL_NONE,  id_bhvBetaChestBottom },
+    { 41, 0, 0, E_MODEL_EXCLAMATION_BOX_OUTLINE,  id_bhvMessagePanel },
+    { 99, 0, 0, 0, nil } 
 }
 
 ----------------------------
@@ -131,6 +153,7 @@ end
 --- @param behavior BehaviorId | Pointer_BehaviorScript
 local function spawn_object(parent, model, behavior)
     if not parent then return nil end
+    if not tonumber(behavior) then behavior = get_id_from_behavior(behavior) end
     local obj = spawn_sync_object(behavior, model, parent.oPosX, parent.oPosY, parent.oPosZ,
         --- @param o Object
         function(o)
@@ -199,19 +222,10 @@ local function exclamation_box_spawn_contents(exclamation_box_obj, desired_index
                 return false
             end
 
-            -- The 1st byte of the exclamation box's behavior params is indeed used, even if it's not in the code.
-            -- This is a hacky fix since I don't know what's actually being done
-            if (exclamation_box_obj >> 24) & 0xFF ~= 0 then
-                spawned_object.oBehParams = spawned_object.oBehParams | (exclamation_box_obj.oBehParams & 0xFF000000)
-            else
-                spawned_object.oBehParams = spawned_object.oBehParams | value[3] << 24
-            end
-            -- I can only assume that unk1 was intended to be used to set the 2nd byte
+            spawned_object.oBehParams = spawned_object.oBehParams | value[3] << 24
             spawned_object.oBehParams2ndByte = value[2]
-            -- Allow stars reappear if they ever despawn
             if value[4] == E_MODEL_STAR then
                 exclamation_box_obj.oFlags = exclamation_box_obj.oFlags | OBJ_FLAG_PERSISTENT_RESPAWN
-                spawned_object.oFlags = spawned_object.oFlags | OBJ_FLAG_PERSISTENT_RESPAWN
             end
 
             -- Send non-star events, since sending them causes jank
@@ -256,38 +270,31 @@ local EXCLAMATION_BOX_ACT_AWAITING_DELETION = 6
 -- Initializes the exclamation box
 --- @param obj Object
 local function exclamation_box_act_initialize(obj)
-    obj.oExclamationBoxForce = 0
-    -- A 2nd byte of 0, 1, and 2 refer to different cap blocks
-    if obj.oBehParams2ndByte < 3 then
-        obj.oAnimState = obj.oBehParams2ndByte
-        -- Determines if cap switches have been pressed
-        if (save_file_get_flags() & cap_flags[obj.oBehParams2ndByte]) ~= 0
-            -- If a cap box has a first byte, it will always be active
-            or ((obj.oBehParams >> 24) & 0xFF) ~= 0 then
-            obj.oAction = EXCLAMATION_BOX_ACT_IDLE
-        else
-            obj.oAction = EXCLAMATION_BOX_ACT_NEED_CAPS
-        end
-    else
-        -- Yellow block
+    if obj.oBehParams2ndByte > 3 then
         obj.oAnimState = 3
-        obj.oAction = EXCLAMATION_BOX_ACT_IDLE
+    else
+        obj.oAnimState = obj.oBehParams2ndByte
+    end
+    if obj.oBehParams2ndByte <= 3 then
+        djui_chat_message_create("" .. save_file_get_flags() .. " " .. cap_flags[obj.oBehParams2ndByte])
+    end
+    if obj.oBehParams2ndByte > 3 or save_file_get_flags() & cap_flags[obj.oBehParams2ndByte] ~= 0 then
+        obj.oAction = 2
+    else
+        obj.oAction = 1
     end
 end
 
--- If the exclamation box is a cap box and the cap switches aren't pressed, go here
 --- @param obj Object
 local function exclamation_box_act_need_caps(obj)
     cur_obj_become_intangible()
     if obj.oTimer == 0 then
         spawn_object(obj, E_MODEL_EXCLAMATION_POINT, id_bhvRotatingExclamationMark)
-        obj_set_model_extended(obj, E_MODEL_EXCLAMATION_BOX_OUTLINE)
+        obj_set_model_extended(obj,E_MODEL_EXCLAMATION_BOX_OUTLINE)
     end
-    if (save_file_get_flags() & cap_flags[obj.oBehParams2ndByte]) ~= 0
-        -- Always false since cap boxes do not have a first byte
-        -- However romhacks can take advantage of this
-        or ((obj.oBehParams >> 24) & 0xFF) ~= 0 then
-        obj.oAction = EXCLAMATION_BOX_ACT_IDLE
+
+    if (save_file_get_flags() & cap_flags[obj.oBehParams2ndByte]) ~= 0 then
+        obj.oAction = 2
         obj_set_model_extended(obj, E_MODEL_EXCLAMATION_BOX)
     end
 end
@@ -452,7 +459,6 @@ end
 
 id_bhvExclamationBox = hook_behavior(id_bhvExclamationBox, OBJ_LIST_SURFACE, true, bhv_custom_exclamation_box_init, bhv_custom_exclamation_box_loop, "bhvExclamationBox")
 
--- Small api that lets other mods modify the contents during gameplay
 _G.ExclamationBox = {
     --- Adds an entry to the exclamation box's contents table
     ---@param behavior_id BehaviorId
@@ -471,7 +477,7 @@ _G.ExclamationBox = {
             index = index - 1
         end
         if not sExclamationBoxContents[index] then
-            print("[Exclamation Box Log]: Index not found (removeEntry)")
+            print("[Exclamation Box Log]: Index not found")
             return
         end
         table.remove(sExclamationBoxContents, index)
@@ -479,20 +485,18 @@ _G.ExclamationBox = {
 
     --- Gets the entry in the exclamation box's contents table.
     --- The indicies in the table that gets returned will always be in the same order:
-    --- content index, oBehParams2ndByte, oBehParams1stByte, model, behavior id
+    --- index, oBehParams2ndByte, oBehParams1stByte, model, behavior id
     ---@param index any
     ---@return table | nil
     getEntry = function (index)
         if sExclamationBoxContents[index] == nil then
-            print("[Exclamation Box Log]: Index not found (getEntry)")
+            print("[Exclamation Box Log]: Index not found")
             return nil
         end
         local contents = sExclamationBoxContents[index]
         return contents
     end,
 
-    --- Gets the length of the contents table.
-    ---@return number
     getContentsTableLength = function ()
         return #sExclamationBoxContents
     end
