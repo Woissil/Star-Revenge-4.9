@@ -1,3 +1,4 @@
+
 --[[
 function purple_pressed()
     return load_hack_data("PURPLE_SWITCH") == "PRESSED"
