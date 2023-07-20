@@ -1,6 +1,6 @@
 This file will serve me very much to know who did what, So that at the end I credit you
 
-- Sunk : MOPs Rework, RedCoins requirements, 45 Degree Wallkicks (Probably Door port)
+- Sunk : MOPs Rework, RedCoins requirements, 45 Degree Wallkicks
 
 - Flipflop_bell : Cap Timer
 
@@ -8,11 +8,11 @@ This file will serve me very much to know who did what, So that at the end I cre
 
 - AgentX : Exclamation Box
 
-- André : Yellow Switch
+- André : Yellow Switch and Box (door system too)
  
 - Drahnokks : Yellow Switch Code ported to C
 
-- 
+- Cooliokid 956 : Scrollings Textures / a bit of the door system
 
 - 
 
