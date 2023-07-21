@@ -35,19 +35,18 @@ gLevelValues.coinsRequiredForCoinStar = 80
 
 ---@param obj Object
 function bhv_custom_red_coin_star_loop(obj)
-    if obj.oHiddenStarTriggerCounter >= gMarioStates[0].area.numRedCoins - 6 then
+    if obj.oHiddenStarTriggerCounter >= gMarioStates[0].area.numRedCoins - 2 then
         obj.oAction = 1
     end
 end
 
--- These both need to be changed, though they share a lot of the same code so the function can be reused
 hook_behavior(id_bhvHiddenRedCoinStar, OBJ_LIST_LEVEL, false, nil, bhv_custom_red_coin_star_loop)
 hook_behavior(id_bhvBowserCourseRedCoinStar, OBJ_LIST_LEVEL, false, nil, bhv_custom_red_coin_star_loop)
 
 ----No Fall Damage---
 
 function no_fall_damage(m)
- m.peakHeight = m.pos.y
+    m.peakHeight = m.pos.y
 end
 hook_event(HOOK_MARIO_UPDATE, no_fall_damage)
 
