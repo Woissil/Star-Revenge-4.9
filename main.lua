@@ -1,10 +1,6 @@
-  -- name: Star Revenge 4.9
+-- name: \\#0035ff\\Star Revenge 4.9:\\#8500af\\ Adulterated Reality
 -- description: Star Revenge 4.9 Ported by Woissil and Blocky
 -- incompatible: romhack
-
-gLevelValues.entryLevel             = LEVEL_CASTLE_GROUNDS
-gLevelValues.exitCastleLevel        = LEVEL_CASTLE_GROUNDS
-gLevelValues.exitCastleWarpNode     = 0x0A
 
 --cam--
 
@@ -12,22 +8,6 @@ camera_set_use_course_specific_settings(false)
 
 ---water scrolling--
 
-movtexqc_register('castle_grounds_1_Movtex_0',    LEVEL_CASTLE_GROUNDS, 1, 0)
-movtexqc_register('bbh_1_Movtex_0',               LEVEL_BBH, 1, 0)
-movtexqc_register('ccm_1_Movtex_0',               LEVEL_CCM, 1, 0)
-movtexqc_register('hmc_1_Movtex_0',               LEVEL_HMC, 1, 0)
-movtexqc_register('ssl_1_Movtex_0',               LEVEL_SSL, 1, 0)
-movtexqc_register('ssl_2_Movtex_0',               LEVEL_SSL, 2, 0)
-movtexqc_register('bob_1_Movtex_0',               LEVEL_BOB, 1, 0)
-movtexqc_register('sl_1_Movtex_0',                LEVEL_SL, 1, 0)
-movtexqc_register('sl_2_Movtex_0',                LEVEL_SL, 2, 0)
-movtexqc_register('wdw_1_Movtex_0',               LEVEL_WDW, 1, 0)
-movtexqc_register('jrb_1_Movtex_0',               LEVEL_JRB, 1, 0)
-movtexqc_register('bitfs_1_Movtex_0',             LEVEL_BITFS, 1, 0)
-movtexqc_register('ddd_1_Movtex_0',               LEVEL_DDD, 1, 0)
-movtexqc_register('castle_courtyard_1_Movtex_0',  LEVEL_CASTLE_COURTYARD, 1, 0)
-movtexqc_register('wmotr_1_Movtex_0',             LEVEL_WMOTR, 1, 0)
-movtexqc_register('wf_1_Movtex_0',                LEVEL_WF, 1, 0)
 
 ---Yellow / Red coin star Code by Sunk---
 
@@ -49,55 +29,6 @@ function no_fall_damage(m)
     m.peakHeight = m.pos.y
 end
 hook_event(HOOK_MARIO_UPDATE, no_fall_damage)
-
----music---
-
-smlua_audio_utils_replace_sequence(0x01, 0x0C, 75, "01_Seq_custom")
-smlua_audio_utils_replace_sequence(0x02, 0x1A, 75, "02_Seq_custom")
-smlua_audio_utils_replace_sequence(0x04, 0x1A, 75, "04_Seq_custom")
-smlua_audio_utils_replace_sequence(0x06, 0x25, 75, "06_Seq_custom")
-smlua_audio_utils_replace_sequence(0x0B, 0x14, 75, "0B_Seq_custom")
-smlua_audio_utils_replace_sequence(0x0D, 0x0C, 75, "0D_Seq_custom")
-smlua_audio_utils_replace_sequence(0x0E, 0x25, 75, "0E_Seq_custom")
-smlua_audio_utils_replace_sequence(0x0F, 0x18, 75, "0F_Seq_custom")
-smlua_audio_utils_replace_sequence(0x10, 0x12, 75, "10_Seq_custom")
-smlua_audio_utils_replace_sequence(0x12, 0x1F, 75, "12_Seq_custom")
-smlua_audio_utils_replace_sequence(0x14, 0x1A, 75, "14_Seq_custom")
-smlua_audio_utils_replace_sequence(0x15, 0x0E, 75, "15_Seq_custom")
-smlua_audio_utils_replace_sequence(0x16, 0x0C, 75, "16_Seq_custom")
-smlua_audio_utils_replace_sequence(0x17, 0x1A, 75, "17_Seq_custom")
-smlua_audio_utils_replace_sequence(0x1B, 0x14, 75, "1B_Seq_custom")
-smlua_audio_utils_replace_sequence(0x1C, 0x20, 75, "1C_Seq_custom")
-smlua_audio_utils_replace_sequence(0x1D, 0x1E, 75, "1D_Seq_custom")
-smlua_audio_utils_replace_sequence(0x1E, 0x1B, 75, "1E_Seq_custom")
-smlua_audio_utils_replace_sequence(0x1F, 0x1A, 75, "1F_Seq_custom")
-smlua_audio_utils_replace_sequence(0x20, 0x23, 75, "20_Seq_custom")
-smlua_audio_utils_replace_sequence(0x21, 0x0C, 75, "21_Seq_custom")
-smlua_audio_utils_replace_sequence(0x24, 0x0C, 75, "24_Seq_custom")
-smlua_audio_utils_replace_sequence(0x27, 0x25, 75, "27_Seq_custom")
-smlua_audio_utils_replace_sequence(0x28, 0x25, 75, "28_Seq_custom")
-smlua_audio_utils_replace_sequence(0x29, 0x19, 75, "29_Seq_custom")
-smlua_audio_utils_replace_sequence(0x2A, 0x25, 75, "2A_Seq_custom")
-smlua_audio_utils_replace_sequence(0x2C, 0x25, 75, "2C_Seq_custom")
-smlua_audio_utils_replace_sequence(0x2E, 0x1A, 75, "2E_Seq_custom")
-smlua_audio_utils_replace_sequence(0x30, 0x0B, 75, "30_Seq_custom")
-smlua_audio_utils_replace_sequence(0x32, 0x25, 75, "32_Seq_custom")
-smlua_audio_utils_replace_sequence(0x34, 0x25, 75, "34_Seq_custom")
-smlua_audio_utils_replace_sequence(0x3C, 0x25, 75, "3C_Seq_custom")
-smlua_audio_utils_replace_sequence(0x3D, 0x25, 75, "3D_Seq_custom")
-smlua_audio_utils_replace_sequence(0x3F, 0x19, 75, "3F_Seq_custom")
-smlua_audio_utils_replace_sequence(0x41, 0x25, 75, "41_Seq_custom")
-smlua_audio_utils_replace_sequence(0x42, 0x0C, 75, "42_Seq_custom")
-smlua_audio_utils_replace_sequence(0x43, 0x0C, 75, "43_Seq_custom")
-smlua_audio_utils_replace_sequence(0x44, 0x0C, 75, "44_Seq_custom")
-smlua_audio_utils_replace_sequence(0x45, 0x25, 75, "45_Seq_custom")
-smlua_audio_utils_replace_sequence(0x47, 0x25, 75, "47_Seq_custom")
-smlua_audio_utils_replace_sequence(0x48, 0x0C, 75, "48_Seq_custom")
-smlua_audio_utils_replace_sequence(0x49, 0x0C, 75, "49_Seq_custom")
-smlua_audio_utils_replace_sequence(0x4B, 0x19, 75, "4B_Seq_custom")
-smlua_audio_utils_replace_sequence(0x4C, 0x1E, 75, "4C_Seq_custom")
-smlua_audio_utils_replace_sequence(0x4D, 0x0C, 75, "4D_Seq_custom")
-smlua_audio_utils_replace_sequence(0x4E, 0x25, 75, "4E_Seq_custom")
 
 ---star pos---
 
@@ -565,3 +496,90 @@ add_scroll_target(<id>, "VB_bowser_3_1_0xe0884f0", <offset>, <count>)
 add_scroll_target(<id>, "VB_bowser_3_1_0xe0886f0", <offset>, <count>)
 add_scroll_target(<id>, "VB_bowser_3_1_0xe02de20", <offset>, <count>)
 add_scroll_target(<id>, "VB_bowser_3_1_0xe049e30", <offset>, <count>)
+
+
+>)
+add_scroll_target(<id>, "VB_cotmc_2_0xe03aed0", <offset>, <count>)
+add_scroll_target(<id>, "VB_cotmc_2_0xe03af50", <offset>, <count>)
+add_scroll_target(<id>, "VB_cotmc_2_0xe03afd0", <offset>, <count>)
+add_scroll_target(<id>, "VB_cotmc_2_0xe03b010", <offset>, <count>)
+add_scroll_target(<id>, "VB_cotmc_2_0xe03b090", <offset>, <count>)
+add_scroll_target(<id>, "VB_cotmc_2_0xe06e3e0", <offset>, <count>)
+add_scroll_target(<id>, "VB_cotmc_2_0xe091eb0", <offset>, <count>)
+add_scroll_target(<id>, "VB_cotmc_2_0xe0925d0", <offset>, <count>)
+add_scroll_target(<id>, "VB_cotmc_2_0xe092a10", <offset>, <count>)
+add_scroll_target(<id>, "VB_cotmc_2_0xe093130", <offset>, <count>)
+add_scroll_target(<id>, "VB_cotmc_2_0xe093570", <offset>, <count>)
+add_scroll_target(<id>, "VB_cotmc_2_0xe093c90", <offset>, <count>)
+add_scroll_target(<id>, "VB_cotmc_2_0xe094e00", <offset>, <count>)
+add_scroll_target(<id>, "VB_cotmc_2_0xe095520", <offset>, <count>)
+add_scroll_target(<id>, "VB_cotmc_2_0xe095960", <offset>, <count>)
+add_scroll_target(<id>, "VB_cotmc_2_0xe096080", <offset>, <count>)
+add_scroll_target(<id>, "VB_cotmc_2_0xe09aa20", <offset>, <count>)
+add_scroll_target(<id>, "VB_cotmc_2_0xe09b140", <offset>, <count>)
+add_scroll_target(<id>, "VB_cotmc_2_0xe09b580", <offset>, <count>)
+add_scroll_target(<id>, "VB_cotmc_2_0xe09bca0", <offset>, <count>)
+add_scroll_target(<id>, "VB_cotmc_2_0xe09deb0", <offset>, <count>)
+add_scroll_target(<id>, "VB_cotmc_2_0xe09e5d0", <offset>, <count>)
+add_scroll_target(<id>, "VB_cotmc_2_0xe09ea10", <offset>, <count>)
+add_scroll_target(<id>, "VB_cotmc_2_0xe09f130", <offset>, <count>)
+add_scroll_target(<id>, "VB_cotmc_2_0xe09f570", <offset>, <count>)
+add_scroll_target(<id>, "VB_cotmc_2_0xe09fc90", <offset>, <count>)
+add_scroll_target(<id>, "VB_totwc_1_0xe01f730", <offset>, <count>)
+add_scroll_target(<id>, "VB_totwc_1_0xe024da0", <offset>, <count>)
+add_scroll_target(<id>, "VB_totwc_1_0xe02e5e0", <offset>, <count>)
+add_scroll_target(<id>, "VB_totwc_1_0xe034d40", <offset>, <count>)
+add_scroll_target(<id>, "VB_totwc_2_0xe021800", <offset>, <count>)
+add_scroll_target(<id>, "VB_totwc_2_0xe022250", <offset>, <count>)
+add_scroll_target(<id>, "VB_bowser_3_1_0xe02c150", <offset>, <count>)
+add_scroll_target(<id>, "VB_bowser_3_1_0xe0345a0", <offset>, <count>)
+add_scroll_target(<id>, "VB_bowser_3_1_0xe034a40", <offset>, <count>)
+add_scroll_target(<id>, "VB_bowser_3_1_0xe034ee0", <offset>, <count>)
+add_scroll_target(<id>, "VB_bowser_3_1_0xe035380", <offset>, <count>)
+add_scroll_target(<id>, "VB_bowser_3_1_0xe035820", <offset>, <count>)
+add_scroll_target(<id>, "VB_bowser_3_1_0xe035cc0", <offset>, <count>)
+add_scroll_target(<id>, "VB_bowser_3_1_0xe036160", <offset>, <count>)
+add_scroll_target(<id>, "VB_bowser_3_1_0xe03a380", <offset>, <count>)
+add_scroll_target(<id>, "VB_bowser_3_1_0xe03a640", <offset>, <count>)
+add_scroll_target(<id>, "VB_bowser_3_1_0xe0884f0", <offset>, <count>)
+add_scroll_target(<id>, "VB_bowser_3_1_0xe0886f0", <offset>, <count>)
+add_scroll_target(<id>, "VB_bowser_3_1_0xe02de20", <offset>, <count>)
+add_scroll_target(<id>, "VB_bowser_3_1_0xe049e30", <offset>, <count>)
+
+
+, <count>)
+
+
+r_3_1_0xe0886f0", <offset>, <count>)
+add_scroll_target(<id>, "VB_bowser_3_1_0xe02de20", <offset>, <count>)
+add_scroll_target(<id>, "VB_bowser_3_1_0xe049e30", <offset>, <count>)
+
+
+, <count>)
+
+
+d>, "VB_bowser_3_1_0xe0345a0", <offset>, <count>)
+add_scroll_target(<id>, "VB_bowser_3_1_0xe034a40", <offset>, <count>)
+add_scroll_target(<id>, "VB_bowser_3_1_0xe034ee0", <offset>, <count>)
+add_scroll_target(<id>, "VB_bowser_3_1_0xe035380", <offset>, <count>)
+add_scroll_target(<id>, "VB_bowser_3_1_0xe035820", <offset>, <count>)
+add_scroll_target(<id>, "VB_bowser_3_1_0xe035cc0", <offset>, <count>)
+add_scroll_target(<id>, "VB_bowser_3_1_0xe036160", <offset>, <count>)
+add_scroll_target(<id>, "VB_bowser_3_1_0xe03a380", <offset>, <count>)
+add_scroll_target(<id>, "VB_bowser_3_1_0xe03a640", <offset>, <count>)
+add_scroll_target(<id>, "VB_bowser_3_1_0xe0884f0", <offset>, <count>)
+add_scroll_target(<id>, "VB_bowser_3_1_0xe0886f0", <offset>, <count>)
+add_scroll_target(<id>, "VB_bowser_3_1_0xe02de20", <offset>, <count>)
+add_scroll_target(<id>, "VB_bowser_3_1_0xe049e30", <offset>, <count>)
+
+
+, <count>)
+
+
+r_3_1_0xe0886f0", <offset>, <count>)
+add_scroll_target(<id>, "VB_bowser_3_1_0xe02de20", <offset>, <count>)
+add_scroll_target(<id>, "VB_bowser_3_1_0xe049e30", <offset>, <count>)
+
+
+, <count>)
+
