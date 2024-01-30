@@ -711,24 +711,36 @@ function bhv_checkpoint_flag_loop(obj)
 end
 
 ---@param m MarioState
-hook_event(HOOK_ON_DEATH, function (m)
-    if not checkpoint_flag_bhv then return true end
-    local obj = find_object_with_behavior(checkpoint_flag_bhv)
-    if not obj then return true end
+hook_event(HOOK_ON_DEATH,
+function ()
+    if not last_touched_checkpoint then return end
 
-    -- Upon dying, restart at the last saved checkpoint
-    if gServerSettings.bubbleDeath == 1 and m.numLives > 0 then
-        return true
-    end
-    while obj do
-        if obj.oAction == CHECKPOINT_FLAG_ACT_SAVED then
-            checkpoint_load(m)
-            reset_player(m)
+    if obj_count_objects_with_behavior_id(bhvCheckpoint_Flag_MOP) > 0 then
+        local ltc = last_touched_checkpoint
+        local m = gMarioStates[0]
+        local nonbubbledplayerexists = false
+
+        -- Warps to the particular object noted down if it shares the same 2nd byte
+        if gServerSettings.bubbleDeath == 1 and m.numLives > 0 then --if bubbledeath is on
+            for i = 1,MAX_PLAYERS - 1,1 do
+                if (gNetworkPlayers[i].connected) and is_player_in_local_area(gMarioStates[i]) and gMarioStates[i].health >= 0x100 and gMarioStates[i].action ~= ACT_BUBBLED then
+                    nonbubbledplayerexists = true
+                end
+            end
+            if nonbubbledplayerexists == true then --if livingplayer exists
+                return true
+            end
+        end
+        if (obj_has_behavior_id(ltc,bhvCheckpoint_Flag_MOP) ~= 0 ) and ltc.oBehParams2ndByte == stored_2nd_byte then
+            vec3f_set(m.pos, ltc.oPosX, ltc.oPosY, ltc.oPosZ)
+            set_mario_action(m, ACT_IDLE, 0)
+            soft_reset_camera(m.area.camera)
+            m.area.camera.cutscene = 0
+            m.hurtCounter = 0
+            m.health = 0x880
             return false
         end
-        obj = obj_get_next(obj)
     end
-    return true
 end)
 
 --id_bhvCheckpoint_Flag_MOP = hook_behavior(nil, OBJ_LIST_GENACTOR, false, bhv_checkpoint_flag_init, bhv_checkpoint_flag_loop, "bhvCheckpoint_Flag_MOP")
