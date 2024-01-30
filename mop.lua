@@ -468,6 +468,9 @@ function bhv_noteblock_loop(obj)
     local m = gMarioStates[0]
     local y_spd = 64
 
+    if gNetworkPlayers[0].currCourseNum == COURSE_LLL then
+        obj_set_model_extended(obj, E_MODEL_NONE)
+
     if cur_obj_is_mario_on_platform() == 1 and not is_bubbled(m) then
          --this is awful -- It really is -Sunk
         -- Jump. If A is pressed during the jump, increase y_spd.
