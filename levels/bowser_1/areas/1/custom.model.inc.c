@@ -26802,7 +26802,6 @@ Gfx DL_bowser_1_1_0xe061890[] = {
 	gsSPLight(&Light_bowser_1_1_0xe000000.col, 2),
 	gsSPLight(&Light_bowser_1_1_0xe000008.col, 1),
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, TEXEL0, 0, SHADE, 0, TEXEL0, 0, SHADE, 0, TEXEL0, 0, SHADE, 0),
-	gsDPSetTextureImage(3, 2, 1, bowser_1_1__texture_0E000820),
 	gsDPSetTile(3, 2, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0),
 	gsDPLoadSync(),
 	gsDPLoadBlock(7, 0, 0, 511, 512),
@@ -26822,10 +26821,10 @@ Gfx DL_bowser_1_1_0xe061890[] = {
 	gsSP2Triangles(4, 5, 4, 0, 6, 7, 8, 0),
 	gsSP1Triangle(6, 8, 9, 0),
 	gsDPSetTextureLUT(G_TT_RGBA16),
-	gsDPSetTextureImage(0, 2, 1, bowser_1_1__texture_0E00CE20),
+
 	gsDPSetTile(0, 0, 0, 256, 1, 0, 0, 0, 0, 0, 0, 0),
 	gsDPLoadTLUTCmd(1, 256),
-	gsDPSetTextureImage(2, 2, 1, bowser_1_1__texture_0E00CC20),
+	
 	gsDPSetTile(2, 2, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0),
 	gsDPLoadSync(),
 	gsDPLoadBlock(7, 0, 0, 255, 512),
@@ -26841,7 +26840,7 @@ Gfx DL_bowser_1_1_0xe061890[] = {
 	gsSP2Triangles(4, 3, 6, 0, 7, 8, 9, 0),
 	gsSP1Triangle(8, 7, 10, 0),
 	gsDPSetTextureLUT(G_TT_NONE),
-	gsDPSetTextureImage(0, 2, 1, bowser_1_1__texture_0E00D020),
+
 	gsDPSetTile(0, 2, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0),
 	gsDPLoadSync(),
 	gsDPLoadBlock(7, 0, 0, 1023, 256),
@@ -26856,7 +26855,6 @@ Gfx DL_bowser_1_1_0xe061890[] = {
 	gsSP2Triangles(0, 1, 2, 0, 3, 4, 5, 0),
 	gsSP2Triangles(4, 3, 6, 0, 7, 8, 9, 0),
 	gsSP1Triangle(10, 11, 12, 0),
-	gsDPSetTextureImage(0, 2, 1, bowser_1_1__texture_0E00D820),
 	gsDPSetTile(0, 2, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0),
 	gsDPLoadSync(),
 	gsDPLoadBlock(7, 0, 0, 1023, 256),
@@ -26867,10 +26865,10 @@ Gfx DL_bowser_1_1_0xe061890[] = {
 	gsSP2Triangles(0, 1, 2, 0, 1, 0, 3, 0),
 	gsSP2Triangles(4, 5, 6, 0, 7, 8, 9, 0),
 	gsDPSetTextureLUT(G_TT_RGBA16),
-	gsDPSetTextureImage(0, 2, 1, bowser_1_1__texture_0E00CE20),
+
 	gsDPSetTile(0, 0, 0, 256, 1, 0, 0, 0, 0, 0, 0, 0),
 	gsDPLoadTLUTCmd(1, 256),
-	gsDPSetTextureImage(2, 2, 1, bowser_1_1__texture_0E00CC20),
+	
 	gsDPSetTile(2, 2, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0),
 	gsDPLoadSync(),
 	gsDPLoadBlock(7, 0, 0, 255, 512),
@@ -26886,7 +26884,7 @@ Gfx DL_bowser_1_1_0xe061890[] = {
 	gsSP2Triangles(4, 3, 6, 0, 7, 8, 9, 0),
 	gsSP1Triangle(8, 7, 10, 0),
 	gsDPSetTextureLUT(G_TT_NONE),
-	gsDPSetTextureImage(0, 2, 1, bowser_1_1__texture_0E00D020),
+
 	gsDPSetTile(0, 2, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0),
 	gsDPLoadSync(),
 	gsDPLoadBlock(7, 0, 0, 1023, 256),
@@ -26901,7 +26899,7 @@ Gfx DL_bowser_1_1_0xe061890[] = {
 	gsSP2Triangles(0, 1, 2, 0, 3, 4, 5, 0),
 	gsSP2Triangles(4, 3, 6, 0, 7, 8, 9, 0),
 	gsSP1Triangle(10, 11, 12, 0),
-	gsDPSetTextureImage(0, 2, 1, bowser_1_1__texture_0E00D820),
+
 	gsDPSetTile(0, 2, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0),
 	gsDPLoadSync(),
 	gsDPLoadBlock(7, 0, 0, 1023, 256),
@@ -26912,10 +26910,8 @@ Gfx DL_bowser_1_1_0xe061890[] = {
 	gsSP2Triangles(0, 1, 2, 0, 1, 0, 3, 0),
 	gsSP2Triangles(4, 5, 6, 0, 7, 8, 9, 0),
 	gsDPSetTextureLUT(G_TT_RGBA16),
-	gsDPSetTextureImage(0, 2, 1, bowser_1_1__texture_0E00E220),
 	gsDPSetTile(0, 0, 0, 256, 1, 0, 0, 0, 0, 0, 0, 0),
 	gsDPLoadTLUTCmd(1, 256),
-	gsDPSetTextureImage(2, 2, 1, bowser_1_1__texture_0E00E020),
 	gsDPSetTile(2, 2, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0),
 	gsDPLoadSync(),
 	gsDPLoadBlock(7, 0, 0, 255, 512),
@@ -26965,7 +26961,6 @@ Gfx DL_bowser_1_1_0xe061890[] = {
 	gsSP2Triangles(0, 1, 2, 0, 3, 4, 5, 0),
 	gsSP1Triangle(4, 3, 6, 0),
 	gsDPSetTextureLUT(G_TT_NONE),
-	gsDPSetTextureImage(3, 2, 1, bowser_1_1__texture_0E000820),
 	gsDPSetTile(3, 2, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0),
 	gsDPLoadSync(),
 	gsDPLoadBlock(7, 0, 0, 511, 512),
@@ -26987,10 +26982,8 @@ Gfx DL_bowser_1_1_0xe061890[] = {
 	gsSP2Triangles(0, 1, 2, 0, 3, 4, 5, 0),
 	gsSP1Triangle(4, 3, 6, 0),
 	gsDPSetTextureLUT(G_TT_RGBA16),
-	gsDPSetTextureImage(0, 2, 1, bowser_1_1__texture_0E00F620),
 	gsDPSetTile(0, 0, 0, 256, 1, 0, 0, 0, 0, 0, 0, 0),
 	gsDPLoadTLUTCmd(1, 256),
-	gsDPSetTextureImage(2, 2, 1, bowser_1_1__texture_0E00F420),
 	gsDPSetTile(2, 2, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0),
 	gsDPLoadSync(),
 	gsDPLoadBlock(7, 0, 0, 255, 512),
@@ -27039,10 +27032,8 @@ Gfx DL_bowser_1_1_0xe061890[] = {
 	gsSPVertex(VB_bowser_1_1_0xe022950, 7, 0),
 	gsSP2Triangles(0, 1, 2, 0, 3, 4, 5, 0),
 	gsSP1Triangle(4, 3, 6, 0),
-	gsDPSetTextureImage(0, 2, 1, bowser_1_1__texture_0E00E220),
 	gsDPSetTile(0, 0, 0, 256, 1, 0, 0, 0, 0, 0, 0, 0),
 	gsDPLoadTLUTCmd(1, 256),
-	gsDPSetTextureImage(2, 2, 1, bowser_1_1__texture_0E00E020),
 	gsDPSetTile(2, 2, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0),
 	gsDPLoadSync(),
 	gsDPLoadBlock(7, 0, 0, 255, 512),
@@ -27091,10 +27082,8 @@ Gfx DL_bowser_1_1_0xe061890[] = {
 	gsSPVertex(VB_bowser_1_1_0xe024850, 7, 0),
 	gsSP2Triangles(0, 1, 2, 0, 3, 4, 5, 0),
 	gsSP1Triangle(4, 3, 6, 0),
-	gsDPSetTextureImage(0, 2, 1, bowser_1_1__texture_0E010A20),
 	gsDPSetTile(0, 0, 0, 256, 1, 0, 0, 0, 0, 0, 0, 0),
 	gsDPLoadTLUTCmd(1, 256),
-	gsDPSetTextureImage(2, 2, 1, bowser_1_1__texture_0E010820),
 	gsDPSetTile(2, 2, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0),
 	gsDPLoadSync(),
 	gsDPLoadBlock(7, 0, 0, 255, 512),
@@ -27115,10 +27104,8 @@ Gfx DL_bowser_1_1_0xe061890[] = {
 	gsSPVertex(VB_bowser_1_1_0xe024c10, 7, 0),
 	gsSP2Triangles(0, 1, 2, 0, 3, 4, 5, 0),
 	gsSP1Triangle(4, 3, 6, 0),
-	gsDPSetTextureImage(0, 2, 1, bowser_1_1__texture_0E00F620),
 	gsDPSetTile(0, 0, 0, 256, 1, 0, 0, 0, 0, 0, 0, 0),
 	gsDPLoadTLUTCmd(1, 256),
-	gsDPSetTextureImage(2, 2, 1, bowser_1_1__texture_0E00F420),
 	gsDPSetTile(2, 2, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0),
 	gsDPLoadSync(),
 	gsDPLoadBlock(7, 0, 0, 255, 512),
@@ -27195,10 +27182,10 @@ Gfx DL_bowser_1_1_0xe061890[] = {
 	gsSPVertex(VB_bowser_1_1_0xe028a00, 7, 0),
 	gsSP2Triangles(0, 1, 2, 0, 3, 4, 5, 0),
 	gsSP1Triangle(4, 3, 6, 0),
-	gsDPSetTextureImage(0, 2, 1, bowser_1_1__texture_0E00CE20),
+
 	gsDPSetTile(0, 0, 0, 256, 1, 0, 0, 0, 0, 0, 0, 0),
 	gsDPLoadTLUTCmd(1, 256),
-	gsDPSetTextureImage(2, 2, 1, bowser_1_1__texture_0E00CC20),
+	
 	gsDPSetTile(2, 2, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0),
 	gsDPLoadSync(),
 	gsDPLoadBlock(7, 0, 0, 255, 512),
@@ -27212,7 +27199,7 @@ Gfx DL_bowser_1_1_0xe061890[] = {
 	gsSPVertex(VB_bowser_1_1_0xe02f940, 3, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsDPSetTextureLUT(G_TT_NONE),
-	gsDPSetTextureImage(0, 2, 1, bowser_1_1__texture_0E00D020),
+
 	gsDPSetTile(0, 2, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0),
 	gsDPLoadSync(),
 	gsDPLoadBlock(7, 0, 0, 1023, 256),
@@ -27225,7 +27212,7 @@ Gfx DL_bowser_1_1_0xe061890[] = {
 	gsSP1Triangle(10, 11, 12, 0),
 	gsSPVertex(VB_bowser_1_1_0xe02fa40, 3, 0),
 	gsSP1Triangle(0, 1, 2, 0),
-	gsDPSetTextureImage(0, 2, 1, bowser_1_1__texture_0E00D820),
+
 	gsDPSetTile(0, 2, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0),
 	gsDPLoadSync(),
 	gsDPLoadBlock(7, 0, 0, 1023, 256),
@@ -27236,10 +27223,10 @@ Gfx DL_bowser_1_1_0xe061890[] = {
 	gsSP2Triangles(0, 1, 2, 0, 1, 0, 3, 0),
 	gsSP2Triangles(4, 5, 6, 0, 5, 4, 7, 0),
 	gsDPSetTextureLUT(G_TT_RGBA16),
-	gsDPSetTextureImage(0, 2, 1, bowser_1_1__texture_0E00CE20),
+
 	gsDPSetTile(0, 0, 0, 256, 1, 0, 0, 0, 0, 0, 0, 0),
 	gsDPLoadTLUTCmd(1, 256),
-	gsDPSetTextureImage(2, 2, 1, bowser_1_1__texture_0E00CC20),
+	
 	gsDPSetTile(2, 2, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0),
 	gsDPLoadSync(),
 	gsDPLoadBlock(7, 0, 0, 255, 512),
@@ -27253,7 +27240,7 @@ Gfx DL_bowser_1_1_0xe061890[] = {
 	gsSPVertex(VB_bowser_1_1_0xe02fba0, 3, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsDPSetTextureLUT(G_TT_NONE),
-	gsDPSetTextureImage(0, 2, 1, bowser_1_1__texture_0E00D020),
+
 	gsDPSetTile(0, 2, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0),
 	gsDPLoadSync(),
 	gsDPLoadBlock(7, 0, 0, 1023, 256),
@@ -27266,7 +27253,7 @@ Gfx DL_bowser_1_1_0xe061890[] = {
 	gsSP1Triangle(10, 11, 12, 0),
 	gsSPVertex(VB_bowser_1_1_0xe02fca0, 3, 0),
 	gsSP1Triangle(0, 1, 2, 0),
-	gsDPSetTextureImage(0, 2, 1, bowser_1_1__texture_0E00D820),
+
 	gsDPSetTile(0, 2, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0),
 	gsDPLoadSync(),
 	gsDPLoadBlock(7, 0, 0, 1023, 256),
@@ -27277,10 +27264,10 @@ Gfx DL_bowser_1_1_0xe061890[] = {
 	gsSP2Triangles(0, 1, 2, 0, 1, 0, 3, 0),
 	gsSP2Triangles(4, 5, 6, 0, 5, 4, 7, 0),
 	gsDPSetTextureLUT(G_TT_RGBA16),
-	gsDPSetTextureImage(0, 2, 1, bowser_1_1__texture_0E00CE20),
+
 	gsDPSetTile(0, 0, 0, 256, 1, 0, 0, 0, 0, 0, 0, 0),
 	gsDPLoadTLUTCmd(1, 256),
-	gsDPSetTextureImage(2, 2, 1, bowser_1_1__texture_0E00CC20),
+	
 	gsDPSetTile(2, 2, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0),
 	gsDPLoadSync(),
 	gsDPLoadBlock(7, 0, 0, 255, 512),
@@ -27294,7 +27281,7 @@ Gfx DL_bowser_1_1_0xe061890[] = {
 	gsSPVertex(VB_bowser_1_1_0xe02fe00, 3, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsDPSetTextureLUT(G_TT_NONE),
-	gsDPSetTextureImage(0, 2, 1, bowser_1_1__texture_0E00D020),
+
 	gsDPSetTile(0, 2, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0),
 	gsDPLoadSync(),
 	gsDPLoadBlock(7, 0, 0, 1023, 256),
@@ -27307,7 +27294,7 @@ Gfx DL_bowser_1_1_0xe061890[] = {
 	gsSP1Triangle(10, 11, 12, 0),
 	gsSPVertex(VB_bowser_1_1_0xe02ff00, 3, 0),
 	gsSP1Triangle(0, 1, 2, 0),
-	gsDPSetTextureImage(0, 2, 1, bowser_1_1__texture_0E00D820),
+
 	gsDPSetTile(0, 2, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0),
 	gsDPLoadSync(),
 	gsDPLoadBlock(7, 0, 0, 1023, 256),
@@ -27318,10 +27305,10 @@ Gfx DL_bowser_1_1_0xe061890[] = {
 	gsSP2Triangles(0, 1, 2, 0, 1, 0, 3, 0),
 	gsSP2Triangles(4, 5, 6, 0, 5, 4, 7, 0),
 	gsDPSetTextureLUT(G_TT_RGBA16),
-	gsDPSetTextureImage(0, 2, 1, bowser_1_1__texture_0E00CE20),
+
 	gsDPSetTile(0, 0, 0, 256, 1, 0, 0, 0, 0, 0, 0, 0),
 	gsDPLoadTLUTCmd(1, 256),
-	gsDPSetTextureImage(2, 2, 1, bowser_1_1__texture_0E00CC20),
+	
 	gsDPSetTile(2, 2, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0),
 	gsDPLoadSync(),
 	gsDPLoadBlock(7, 0, 0, 255, 512),
@@ -27335,7 +27322,7 @@ Gfx DL_bowser_1_1_0xe061890[] = {
 	gsSPVertex(VB_bowser_1_1_0xe030060, 3, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsDPSetTextureLUT(G_TT_NONE),
-	gsDPSetTextureImage(0, 2, 1, bowser_1_1__texture_0E00D020),
+
 	gsDPSetTile(0, 2, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0),
 	gsDPLoadSync(),
 	gsDPLoadBlock(7, 0, 0, 1023, 256),
@@ -27348,7 +27335,7 @@ Gfx DL_bowser_1_1_0xe061890[] = {
 	gsSP1Triangle(10, 11, 12, 0),
 	gsSPVertex(VB_bowser_1_1_0xe030160, 3, 0),
 	gsSP1Triangle(0, 1, 2, 0),
-	gsDPSetTextureImage(0, 2, 1, bowser_1_1__texture_0E00D820),
+
 	gsDPSetTile(0, 2, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0),
 	gsDPLoadSync(),
 	gsDPLoadBlock(7, 0, 0, 1023, 256),
@@ -27359,10 +27346,10 @@ Gfx DL_bowser_1_1_0xe061890[] = {
 	gsSP2Triangles(0, 1, 2, 0, 1, 0, 3, 0),
 	gsSP2Triangles(4, 5, 6, 0, 5, 4, 7, 0),
 	gsDPSetTextureLUT(G_TT_RGBA16),
-	gsDPSetTextureImage(0, 2, 1, bowser_1_1__texture_0E00CE20),
+
 	gsDPSetTile(0, 0, 0, 256, 1, 0, 0, 0, 0, 0, 0, 0),
 	gsDPLoadTLUTCmd(1, 256),
-	gsDPSetTextureImage(2, 2, 1, bowser_1_1__texture_0E00CC20),
+	
 	gsDPSetTile(2, 2, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0),
 	gsDPLoadSync(),
 	gsDPLoadBlock(7, 0, 0, 255, 512),
@@ -27376,7 +27363,7 @@ Gfx DL_bowser_1_1_0xe061890[] = {
 	gsSPVertex(VB_bowser_1_1_0xe0302c0, 3, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsDPSetTextureLUT(G_TT_NONE),
-	gsDPSetTextureImage(0, 2, 1, bowser_1_1__texture_0E00D020),
+
 	gsDPSetTile(0, 2, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0),
 	gsDPLoadSync(),
 	gsDPLoadBlock(7, 0, 0, 1023, 256),
@@ -27389,7 +27376,7 @@ Gfx DL_bowser_1_1_0xe061890[] = {
 	gsSP1Triangle(10, 11, 12, 0),
 	gsSPVertex(VB_bowser_1_1_0xe0303c0, 3, 0),
 	gsSP1Triangle(0, 1, 2, 0),
-	gsDPSetTextureImage(0, 2, 1, bowser_1_1__texture_0E00D820),
+
 	gsDPSetTile(0, 2, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0),
 	gsDPLoadSync(),
 	gsDPLoadBlock(7, 0, 0, 1023, 256),
@@ -27400,10 +27387,10 @@ Gfx DL_bowser_1_1_0xe061890[] = {
 	gsSP2Triangles(0, 1, 2, 0, 1, 0, 3, 0),
 	gsSP2Triangles(4, 5, 6, 0, 5, 4, 7, 0),
 	gsDPSetTextureLUT(G_TT_RGBA16),
-	gsDPSetTextureImage(0, 2, 1, bowser_1_1__texture_0E00CE20),
+
 	gsDPSetTile(0, 0, 0, 256, 1, 0, 0, 0, 0, 0, 0, 0),
 	gsDPLoadTLUTCmd(1, 256),
-	gsDPSetTextureImage(2, 2, 1, bowser_1_1__texture_0E00CC20),
+	
 	gsDPSetTile(2, 2, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0),
 	gsDPLoadSync(),
 	gsDPLoadBlock(7, 0, 0, 255, 512),
@@ -27417,7 +27404,7 @@ Gfx DL_bowser_1_1_0xe061890[] = {
 	gsSPVertex(VB_bowser_1_1_0xe030520, 3, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsDPSetTextureLUT(G_TT_NONE),
-	gsDPSetTextureImage(0, 2, 1, bowser_1_1__texture_0E00D020),
+
 	gsDPSetTile(0, 2, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0),
 	gsDPLoadSync(),
 	gsDPLoadBlock(7, 0, 0, 1023, 256),
@@ -27430,7 +27417,7 @@ Gfx DL_bowser_1_1_0xe061890[] = {
 	gsSP1Triangle(10, 11, 12, 0),
 	gsSPVertex(VB_bowser_1_1_0xe030620, 3, 0),
 	gsSP1Triangle(0, 1, 2, 0),
-	gsDPSetTextureImage(0, 2, 1, bowser_1_1__texture_0E00D820),
+
 	gsDPSetTile(0, 2, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0),
 	gsDPLoadSync(),
 	gsDPLoadBlock(7, 0, 0, 1023, 256),
@@ -27441,10 +27428,10 @@ Gfx DL_bowser_1_1_0xe061890[] = {
 	gsSP2Triangles(0, 1, 2, 0, 1, 0, 3, 0),
 	gsSP2Triangles(4, 5, 6, 0, 5, 4, 7, 0),
 	gsDPSetTextureLUT(G_TT_RGBA16),
-	gsDPSetTextureImage(0, 2, 1, bowser_1_1__texture_0E00CE20),
+
 	gsDPSetTile(0, 0, 0, 256, 1, 0, 0, 0, 0, 0, 0, 0),
 	gsDPLoadTLUTCmd(1, 256),
-	gsDPSetTextureImage(2, 2, 1, bowser_1_1__texture_0E00CC20),
+	
 	gsDPSetTile(2, 2, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0),
 	gsDPLoadSync(),
 	gsDPLoadBlock(7, 0, 0, 255, 512),
@@ -27458,7 +27445,7 @@ Gfx DL_bowser_1_1_0xe061890[] = {
 	gsSPVertex(VB_bowser_1_1_0xe030780, 3, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsDPSetTextureLUT(G_TT_NONE),
-	gsDPSetTextureImage(0, 2, 1, bowser_1_1__texture_0E00D020),
+
 	gsDPSetTile(0, 2, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0),
 	gsDPLoadSync(),
 	gsDPLoadBlock(7, 0, 0, 1023, 256),
@@ -27471,7 +27458,7 @@ Gfx DL_bowser_1_1_0xe061890[] = {
 	gsSP1Triangle(10, 11, 12, 0),
 	gsSPVertex(VB_bowser_1_1_0xe030880, 3, 0),
 	gsSP1Triangle(0, 1, 2, 0),
-	gsDPSetTextureImage(0, 2, 1, bowser_1_1__texture_0E00D820),
+
 	gsDPSetTile(0, 2, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0),
 	gsDPLoadSync(),
 	gsDPLoadBlock(7, 0, 0, 1023, 256),
@@ -27482,10 +27469,10 @@ Gfx DL_bowser_1_1_0xe061890[] = {
 	gsSP2Triangles(0, 1, 2, 0, 1, 0, 3, 0),
 	gsSP2Triangles(4, 5, 6, 0, 5, 4, 7, 0),
 	gsDPSetTextureLUT(G_TT_RGBA16),
-	gsDPSetTextureImage(0, 2, 1, bowser_1_1__texture_0E00CE20),
+
 	gsDPSetTile(0, 0, 0, 256, 1, 0, 0, 0, 0, 0, 0, 0),
 	gsDPLoadTLUTCmd(1, 256),
-	gsDPSetTextureImage(2, 2, 1, bowser_1_1__texture_0E00CC20),
+	
 	gsDPSetTile(2, 2, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0),
 	gsDPLoadSync(),
 	gsDPLoadBlock(7, 0, 0, 255, 512),
@@ -27499,7 +27486,7 @@ Gfx DL_bowser_1_1_0xe061890[] = {
 	gsSPVertex(VB_bowser_1_1_0xe0309e0, 3, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsDPSetTextureLUT(G_TT_NONE),
-	gsDPSetTextureImage(0, 2, 1, bowser_1_1__texture_0E00D020),
+
 	gsDPSetTile(0, 2, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0),
 	gsDPLoadSync(),
 	gsDPLoadBlock(7, 0, 0, 1023, 256),
@@ -27512,7 +27499,7 @@ Gfx DL_bowser_1_1_0xe061890[] = {
 	gsSP1Triangle(10, 11, 12, 0),
 	gsSPVertex(VB_bowser_1_1_0xe030ae0, 3, 0),
 	gsSP1Triangle(0, 1, 2, 0),
-	gsDPSetTextureImage(0, 2, 1, bowser_1_1__texture_0E00D820),
+
 	gsDPSetTile(0, 2, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0),
 	gsDPLoadSync(),
 	gsDPLoadBlock(7, 0, 0, 1023, 256),
@@ -27523,10 +27510,10 @@ Gfx DL_bowser_1_1_0xe061890[] = {
 	gsSP2Triangles(0, 1, 2, 0, 1, 0, 3, 0),
 	gsSP2Triangles(4, 5, 6, 0, 5, 4, 7, 0),
 	gsDPSetTextureLUT(G_TT_RGBA16),
-	gsDPSetTextureImage(0, 2, 1, bowser_1_1__texture_0E00CE20),
+
 	gsDPSetTile(0, 0, 0, 256, 1, 0, 0, 0, 0, 0, 0, 0),
 	gsDPLoadTLUTCmd(1, 256),
-	gsDPSetTextureImage(2, 2, 1, bowser_1_1__texture_0E00CC20),
+	
 	gsDPSetTile(2, 2, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0),
 	gsDPLoadSync(),
 	gsDPLoadBlock(7, 0, 0, 255, 512),
@@ -27540,7 +27527,7 @@ Gfx DL_bowser_1_1_0xe061890[] = {
 	gsSPVertex(VB_bowser_1_1_0xe030c40, 3, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsDPSetTextureLUT(G_TT_NONE),
-	gsDPSetTextureImage(0, 2, 1, bowser_1_1__texture_0E00D020),
+
 	gsDPSetTile(0, 2, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0),
 	gsDPLoadSync(),
 	gsDPLoadBlock(7, 0, 0, 1023, 256),
@@ -27553,7 +27540,7 @@ Gfx DL_bowser_1_1_0xe061890[] = {
 	gsSP1Triangle(10, 11, 12, 0),
 	gsSPVertex(VB_bowser_1_1_0xe030d40, 3, 0),
 	gsSP1Triangle(0, 1, 2, 0),
-	gsDPSetTextureImage(0, 2, 1, bowser_1_1__texture_0E00D820),
+
 	gsDPSetTile(0, 2, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0),
 	gsDPLoadSync(),
 	gsDPLoadBlock(7, 0, 0, 1023, 256),
@@ -27564,10 +27551,10 @@ Gfx DL_bowser_1_1_0xe061890[] = {
 	gsSP2Triangles(0, 1, 2, 0, 1, 0, 3, 0),
 	gsSP2Triangles(4, 5, 6, 0, 5, 4, 7, 0),
 	gsDPSetTextureLUT(G_TT_RGBA16),
-	gsDPSetTextureImage(0, 2, 1, bowser_1_1__texture_0E00CE20),
+
 	gsDPSetTile(0, 0, 0, 256, 1, 0, 0, 0, 0, 0, 0, 0),
 	gsDPLoadTLUTCmd(1, 256),
-	gsDPSetTextureImage(2, 2, 1, bowser_1_1__texture_0E00CC20),
+	
 	gsDPSetTile(2, 2, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0),
 	gsDPLoadSync(),
 	gsDPLoadBlock(7, 0, 0, 255, 512),
@@ -27581,7 +27568,7 @@ Gfx DL_bowser_1_1_0xe061890[] = {
 	gsSPVertex(VB_bowser_1_1_0xe030ea0, 3, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsDPSetTextureLUT(G_TT_NONE),
-	gsDPSetTextureImage(0, 2, 1, bowser_1_1__texture_0E00D020),
+
 	gsDPSetTile(0, 2, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0),
 	gsDPLoadSync(),
 	gsDPLoadBlock(7, 0, 0, 1023, 256),
@@ -27594,7 +27581,7 @@ Gfx DL_bowser_1_1_0xe061890[] = {
 	gsSP1Triangle(10, 11, 12, 0),
 	gsSPVertex(VB_bowser_1_1_0xe030fa0, 3, 0),
 	gsSP1Triangle(0, 1, 2, 0),
-	gsDPSetTextureImage(0, 2, 1, bowser_1_1__texture_0E00D820),
+
 	gsDPSetTile(0, 2, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0),
 	gsDPLoadSync(),
 	gsDPLoadBlock(7, 0, 0, 1023, 256),
@@ -27605,10 +27592,10 @@ Gfx DL_bowser_1_1_0xe061890[] = {
 	gsSP2Triangles(0, 1, 2, 0, 1, 0, 3, 0),
 	gsSP2Triangles(4, 5, 6, 0, 5, 4, 7, 0),
 	gsDPSetTextureLUT(G_TT_RGBA16),
-	gsDPSetTextureImage(0, 2, 1, bowser_1_1__texture_0E00CE20),
+
 	gsDPSetTile(0, 0, 0, 256, 1, 0, 0, 0, 0, 0, 0, 0),
 	gsDPLoadTLUTCmd(1, 256),
-	gsDPSetTextureImage(2, 2, 1, bowser_1_1__texture_0E00CC20),
+	
 	gsDPSetTile(2, 2, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0),
 	gsDPLoadSync(),
 	gsDPLoadBlock(7, 0, 0, 255, 512),
@@ -27622,7 +27609,7 @@ Gfx DL_bowser_1_1_0xe061890[] = {
 	gsSPVertex(VB_bowser_1_1_0xe031100, 3, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsDPSetTextureLUT(G_TT_NONE),
-	gsDPSetTextureImage(0, 2, 1, bowser_1_1__texture_0E00D020),
+
 	gsDPSetTile(0, 2, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0),
 	gsDPLoadSync(),
 	gsDPLoadBlock(7, 0, 0, 1023, 256),
@@ -27635,7 +27622,7 @@ Gfx DL_bowser_1_1_0xe061890[] = {
 	gsSP1Triangle(10, 11, 12, 0),
 	gsSPVertex(VB_bowser_1_1_0xe031200, 3, 0),
 	gsSP1Triangle(0, 1, 2, 0),
-	gsDPSetTextureImage(0, 2, 1, bowser_1_1__texture_0E00D820),
+
 	gsDPSetTile(0, 2, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0),
 	gsDPLoadSync(),
 	gsDPLoadBlock(7, 0, 0, 1023, 256),
@@ -27646,10 +27633,9 @@ Gfx DL_bowser_1_1_0xe061890[] = {
 	gsSP2Triangles(0, 1, 2, 0, 1, 0, 3, 0),
 	gsSP2Triangles(4, 5, 6, 0, 5, 4, 7, 0),
 	gsDPSetTextureLUT(G_TT_RGBA16),
-	gsDPSetTextureImage(0, 2, 1, bowser_1_1__texture_0E011420),
+
 	gsDPSetTile(0, 0, 0, 256, 1, 0, 0, 0, 0, 0, 0, 0),
 	gsDPLoadTLUTCmd(1, 256),
-	gsDPSetTextureImage(2, 2, 1, bowser_1_1__texture_0E010C20),
 	gsDPSetTile(2, 2, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0),
 	gsDPLoadSync(),
 	gsDPLoadBlock(7, 0, 0, 1023, 512),
@@ -27785,10 +27771,10 @@ Gfx DL_bowser_1_1_0xe061890[] = {
 	gsSPVertex(VB_bowser_1_1_0xe032ad0, 8, 0),
 	gsSP2Triangles(0, 1, 2, 0, 1, 0, 3, 0),
 	gsSP2Triangles(4, 5, 6, 0, 5, 4, 7, 0),
-	gsDPSetTextureImage(0, 2, 1, bowser_1_1__texture_0E00CE20),
+
 	gsDPSetTile(0, 0, 0, 256, 1, 0, 0, 0, 0, 0, 0, 0),
 	gsDPLoadTLUTCmd(1, 256),
-	gsDPSetTextureImage(2, 2, 1, bowser_1_1__texture_0E00CC20),
+	
 	gsDPSetTile(2, 2, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0),
 	gsDPLoadSync(),
 	gsDPLoadBlock(7, 0, 0, 255, 512),
@@ -27804,7 +27790,7 @@ Gfx DL_bowser_1_1_0xe061890[] = {
 	gsSP2Triangles(4, 3, 6, 0, 7, 8, 9, 0),
 	gsSP1Triangle(8, 7, 10, 0),
 	gsDPSetTextureLUT(G_TT_NONE),
-	gsDPSetTextureImage(0, 2, 1, bowser_1_1__texture_0E00D020),
+
 	gsDPSetTile(0, 2, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0),
 	gsDPLoadSync(),
 	gsDPLoadBlock(7, 0, 0, 1023, 256),
@@ -27819,7 +27805,7 @@ Gfx DL_bowser_1_1_0xe061890[] = {
 	gsSP2Triangles(0, 1, 2, 0, 3, 4, 5, 0),
 	gsSP2Triangles(4, 3, 6, 0, 7, 8, 9, 0),
 	gsSP1Triangle(10, 11, 12, 0),
-	gsDPSetTextureImage(0, 2, 1, bowser_1_1__texture_0E00D820),
+
 	gsDPSetTile(0, 2, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0),
 	gsDPLoadSync(),
 	gsDPLoadBlock(7, 0, 0, 1023, 256),
@@ -27830,10 +27816,10 @@ Gfx DL_bowser_1_1_0xe061890[] = {
 	gsSP2Triangles(0, 1, 2, 0, 1, 0, 3, 0),
 	gsSP2Triangles(4, 5, 6, 0, 7, 8, 9, 0),
 	gsDPSetTextureLUT(G_TT_RGBA16),
-	gsDPSetTextureImage(0, 2, 1, bowser_1_1__texture_0E00CE20),
+
 	gsDPSetTile(0, 0, 0, 256, 1, 0, 0, 0, 0, 0, 0, 0),
 	gsDPLoadTLUTCmd(1, 256),
-	gsDPSetTextureImage(2, 2, 1, bowser_1_1__texture_0E00CC20),
+	
 	gsDPSetTile(2, 2, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0),
 	gsDPLoadSync(),
 	gsDPLoadBlock(7, 0, 0, 255, 512),
@@ -27849,7 +27835,7 @@ Gfx DL_bowser_1_1_0xe061890[] = {
 	gsSP2Triangles(4, 3, 6, 0, 7, 8, 9, 0),
 	gsSP1Triangle(8, 7, 10, 0),
 	gsDPSetTextureLUT(G_TT_NONE),
-	gsDPSetTextureImage(0, 2, 1, bowser_1_1__texture_0E00D020),
+
 	gsDPSetTile(0, 2, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0),
 	gsDPLoadSync(),
 	gsDPLoadBlock(7, 0, 0, 1023, 256),
@@ -27864,7 +27850,7 @@ Gfx DL_bowser_1_1_0xe061890[] = {
 	gsSP2Triangles(0, 1, 2, 0, 3, 4, 5, 0),
 	gsSP2Triangles(6, 7, 8, 0, 9, 10, 11, 0),
 	gsSP1Triangle(12, 13, 14, 0),
-	gsDPSetTextureImage(0, 2, 1, bowser_1_1__texture_0E00D820),
+
 	gsDPSetTile(0, 2, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0),
 	gsDPLoadSync(),
 	gsDPLoadBlock(7, 0, 0, 1023, 256),

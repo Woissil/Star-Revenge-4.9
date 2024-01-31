@@ -13440,7 +13440,7 @@ Gfx DL_castle_inside_1_0xe039a28[] = {
 	gsDPSetTileSize(0, 0, 0, 252, 124),
 	gsSPVertex(VB_castle_inside_1_0xe023f60, 4, 0),
 	gsSP2Triangles(0, 1, 2, 0, 1, 0, 3, 0),
-	gsDPSetTextureImage(3, 2, 1, castle_inside_1__texture_0E00CC20),
+	
 	gsDPSetTile(3, 2, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0),
 	gsDPLoadSync(),
 	gsDPLoadBlock(7, 0, 0, 511, 512),

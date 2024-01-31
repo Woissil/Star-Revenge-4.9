@@ -66,7 +66,7 @@ const LevelScript level_ttm_entry[] = {
 	JUMP_LINK(script_func_global_18),
 	JUMP_LINK(local_area_ttm_1_),
 	FREE_LEVEL_POOL(),
-	MARIO_POS(1, 0, 0, 0, 0),
+	MARIO_POS(/* area */ 1, /* yaw */ 0, /* pos */ 0, 0, 0),
 	CALL(/*arg*/ 0, /*func*/ lvl_init_or_update),
 	CALL_LOOP(/*arg*/ 1, /*func*/ lvl_init_or_update),
 	CLEAR_LEVEL(),
