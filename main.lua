@@ -29,9 +29,16 @@ movtexqc_register('castle_courtyard_1_Movtex_0',  LEVEL_CASTLE_COURTYARD, 1, 0)
 movtexqc_register('wmotr_1_Movtex_0',             LEVEL_WMOTR, 1, 0)
 movtexqc_register('wf_1_Movtex_0',                LEVEL_WF, 1, 0)
 
----Yellow / Red coin star Code by Sunk---
+---------------------
+---Small Functions---
+---------------------
 
---gLevelValues.coinsRequiredForCoinStar = 80
+
+function set_dialog_color_to_blue()
+    set_dialog_override_color(100, 100, 255, 255)
+end
+
+hook_event(HOOK_ON_DIALOG, auto_skip)
 
 ---@param obj Object
 function bhv_custom_red_coin_star_loop(obj)
@@ -44,11 +51,10 @@ end
 hook_behavior(id_bhvHiddenRedCoinStar, OBJ_LIST_LEVEL, false, nil, bhv_custom_red_coin_star_loop)
 hook_behavior(id_bhvBowserCourseRedCoinStar, OBJ_LIST_LEVEL, false, nil, bhv_custom_red_coin_star_loop)
 
-----No Fall Damage---
-
 function no_fall_damage(m)
     m.peakHeight = m.pos.y
 end
+
 hook_event(HOOK_MARIO_UPDATE, no_fall_damage)
 
 ---star pos---

@@ -1,4 +1,5 @@
 ---music---
+-- you are not dumb? Otherwise delete this repo--
 
 smlua_audio_utils_replace_sequence(0x01, 0x0C, 75, "01_Seq_custom")
 smlua_audio_utils_replace_sequence(0x02, 0x1A, 75, "02_Seq_custom")
