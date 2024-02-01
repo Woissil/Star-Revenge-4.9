@@ -33,11 +33,6 @@ movtexqc_register('wf_1_Movtex_0',                LEVEL_WF, 1, 0)
 ---Small Functions---
 ---------------------
 
-
-function set_dialog_color_to_blue()
-    set_dialog_override_color(100, 100, 255, 255)
-end
-
 hook_event(HOOK_ON_DIALOG, auto_skip)
 
 ---@param obj Object
