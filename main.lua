@@ -2,10 +2,6 @@
 -- description: Star Revenge 4.9 Ported by Woissil and Blocky
 -- incompatible: romhack
 
-gLevelValues.entryLevel             = LEVEL_CASTLE_GROUNDS
-gLevelValues.exitCastleLevel        = LEVEL_CASTLE_GROUNDS
-gLevelValues.exitCastleWarpNode     = 0x0A
-
 --cam--
 
 camera_set_use_course_specific_settings(false)
@@ -32,8 +28,11 @@ movtexqc_register('wf_1_Movtex_0',                LEVEL_WF, 1, 0)
 ---------------------
 ---Small Functions---
 ---------------------
+function set_dialog_color_to_blue()
+    set_dialog_override_color(25, 28, 97, 180, 255, 255, 255, 255)
+end
 
-hook_event(HOOK_ON_DIALOG, auto_skip)
+hook_event(HOOK_ON_DIALOG, set_dialog_color_to_blue)
 
 ---@param obj Object
 function bhv_custom_red_coin_star_loop(obj)

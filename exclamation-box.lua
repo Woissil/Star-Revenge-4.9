@@ -1,4 +1,4 @@
--- don't ask me why there is nothing here idk too
+-- thanks André
 ---@param o Object
 function bhv_custom_exclamation_box_init(o)
     if o.oBehParams2ndByte == 3 then

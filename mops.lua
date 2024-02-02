@@ -4,6 +4,7 @@
 ----------------
 
 -- If any of these are needed in another file, like the exclamation box, just make models you need global
+
 local E_MODEL_FLIPSWITCH_PANEL = smlua_model_util_get_id("Flipswitch_Panel_MOP")
 local E_MODEL_FLIPSWAP_PLATFORM = smlua_model_util_get_id("Flipswap_Platform_MOP")
 local E_MODEL_FLIPSWAP_PLATFORM_BORDER = smlua_model_util_get_id("Flipswap_Platform_Border_MOP")
@@ -885,7 +886,7 @@ id_bhvShrink_Platform_MOP = hook_behavior(nil, OBJ_LIST_SURFACE, false, bhv_shri
 local StarSpawned = false
 
 hook_event(HOOK_ON_LEVEL_INIT, function ()
-    if obj_count_objects_with_behavior_id(id_bhvFlipswitch_Panel_StarSpawn_MOP) == 0 then
+    if obj_count_objects_with_behavior_id(bhvFlipswitch_Panel_StarSpawn_MOP) == 0 then
         StarSpawned = false
     end
 end)
@@ -895,7 +896,7 @@ function bhv_flipswitch_panel_init(obj)
     obj.oFlags = OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE
     obj.collisionData = COL_FLIPSWITCH_PANEL_MOP
     obj.oCollisionDistance = 1024
-    obj.parentObj = obj_get_nearest_object_with_behavior_id(obj, id_bhvFlipswitch_Panel_StarSpawn_MOP)
+    obj.parentObj = obj_get_nearest_object_with_behavior_id(obj, bhvFlipswitch_Panel_StarSpawn_MOP)
 
     network_init_object(obj, false, {
         "oAction",
@@ -911,7 +912,7 @@ function bhv_flipswitch_panel_loop(obj)
 
     -- Always checks for the starspawn mop
     if not obj.parentObj then
-        obj.parentObj = obj_get_nearest_object_with_behavior_id(obj, id_bhvFlipswitch_Panel_StarSpawn_MOP)
+        obj.parentObj = obj_get_nearest_object_with_behavior_id(obj, bhvFlipswitch_Panel_StarSpawn_MOP)
         if not obj.parentObj then
            return
         end
@@ -945,11 +946,11 @@ function bhv_flipswitch_panel_loop(obj)
     end
 end
 
-id_bhvFlipswitch_Panel_MOP = hook_behavior(nil, OBJ_LIST_SURFACE, false, bhv_flipswitch_panel_init, bhv_flipswitch_panel_loop, "bhvFlipswitch_Panel_MOP")
+bhvFlipswitch_Panel_MOP = hook_behavior(nil, OBJ_LIST_SURFACE, false, bhv_flipswitch_panel_init, bhv_flipswitch_panel_loop, "bhvFlipswitch_Panel_MOP")
 
 ---@param obj Object
 function bhv_flipswitch_panel_starspawn_init(obj)
-    obj.oHealth = obj_count_objects_with_behavior_id(id_bhvFlipswitch_Panel_MOP)
+    obj.oHealth = obj_count_objects_with_behavior_id(bhvFlipswitch_Panel_MOP)
 
     network_init_object(obj, false, {
         "oHiddenStarTriggerCounter"
@@ -958,7 +959,7 @@ end
 
 ---@param obj Object
 function bhv_flipswitch_panel_starspawn_loop(obj)
-    local amount_of_panels = obj_count_objects_with_behavior_id(id_bhvFlipswitch_Panel_MOP)
+    local amount_of_panels = obj_count_objects_with_behavior_id(bhvFlipswitch_Panel_MOP)
     -- Prevents the starspawn mop from prematurely assume all panels have been pressed
     if amount_of_panels > obj.oHealth or obj.oHealth == 0 then
         obj.oHealth = amount_of_panels
@@ -976,7 +977,7 @@ function bhv_flipswitch_panel_starspawn_loop(obj)
     end
 end
 
-id_bhvFlipswitch_Panel_StarSpawn_MOP = hook_behavior(nil, OBJ_LIST_GENACTOR, false, bhv_flipswitch_panel_starspawn_init, bhv_flipswitch_panel_starspawn_loop, "bhvFlipswitch_Panel_StarSpawn_MOP")
+bhvFlipswitch_Panel_StarSpawn_MOP = hook_behavior(nil, OBJ_LIST_GENACTOR, false, bhv_flipswitch_panel_starspawn_init, bhv_flipswitch_panel_starspawn_loop, "bhvFlipswitch_Panel_StarSpawn_MOP")
 
 ------ Switchblock ------
 -- This block is either red or blue. If the corresponding switch is pressed, activate blocks of one color and deactivate blocks of another color.

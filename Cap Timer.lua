@@ -1,4 +1,4 @@
-function captimer()
+function captimer() -- Code by Flipflop_bell and modified by Woissil (me lol)
     djui_hud_set_color(255, 255, 255, 255)
     djui_hud_set_font(FONT_HUD)
     djui_hud_set_resolution(RESOLUTION_N64)
