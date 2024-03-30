@@ -274,11 +274,11 @@ OBJECT_WITH_ACTS(129,10053,4822,7102,0,0,0,0x0, bhvHiddenObject,31),
 OBJECT_WITH_ACTS(129,9604,-1491,-6634,0,320,0,0x0, bhvHiddenObject,31),
 OBJECT_WITH_ACTS(120,14798,3662,-6093,0,0,0,0x0, bhvRecoveryHeart,31),
 OBJECT_WITH_ACTS(124,6616,1102,9311,0,0,0,0x520000, bhvMessagePanel,31),
-OBJECT_WITH_ACTS(0,-4,4,40,0,0,20,46, RM_Scroll_Texture,31),
-OBJECT_WITH_ACTS(0,-5,4,231,0,0,20,47, RM_Scroll_Texture,31),
-OBJECT_WITH_ACTS(0,-4,4,102,0,0,20,48, RM_Scroll_Texture,31),
-OBJECT_WITH_ACTS(0,-5,4,335,0,0,20,49, RM_Scroll_Texture,31),
-OBJECT_WITH_ACTS(0,80,5,135,0,0,20,50, RM_Scroll_Texture,31),
+OBJECT_WITH_ACTS(0,-4,4,15,0,0,20,46, RM_Scroll_Texture,31),
+OBJECT_WITH_ACTS(0,-5,4,15,0,0,20,47, RM_Scroll_Texture,31),
+OBJECT_WITH_ACTS(0,-4,4,15,0,0,20,48, RM_Scroll_Texture,31),
+OBJECT_WITH_ACTS(0,-5,4,15,0,0,20,49, RM_Scroll_Texture,31),
+OBJECT_WITH_ACTS(0,80,5,15,0,0,20,50, RM_Scroll_Texture,31),
 RETURN()
 };
 const LevelScript local_warps_jrb_1_[] = {

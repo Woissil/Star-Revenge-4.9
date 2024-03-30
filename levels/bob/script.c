@@ -170,9 +170,9 @@ OBJECT_WITH_ACTS(180,5239,648,-15739,0,0,0,0x0, bhvFireSpitter,31),
 OBJECT_WITH_ACTS(180,-2357,1470,-518,0,0,0,0x0, bhvFireSpitter,31),
 OBJECT_WITH_ACTS(180,-1566,1170,125,0,0,0,0x0, bhvFireSpitter,31),
 OBJECT_WITH_ACTS(195,2173,0,3799,0,0,0,0x9a0000, bhvBobombBuddy,31),
-OBJECT_WITH_ACTS(0,-5,4,777,0,0,20,27, RM_Scroll_Texture,31),
-OBJECT_WITH_ACTS(0,-5,5,75,0,0,20,28, RM_Scroll_Texture,31),
-OBJECT_WITH_ACTS(0,-7,4,8,0,0,20,29, RM_Scroll_Texture,31),
+OBJECT_WITH_ACTS(0,-5,4,15,0,0,20,27, RM_Scroll_Texture,31),
+OBJECT_WITH_ACTS(0,-5,5,15,0,0,20,28, RM_Scroll_Texture,31),
+OBJECT_WITH_ACTS(0,-7,4,15,0,0,20,29, RM_Scroll_Texture,31),
 RETURN()
 };
 const LevelScript local_warps_bob_1_[] = {

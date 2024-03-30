@@ -5011,7 +5011,7 @@ Gfx DL_ttc_4_0xe018fd0[] = {
 	gsSPLight(&Light_ttc_4_0xe000008.col, 1),
 	gsDPSetCycleType(G_CYC_2CYCLE),
 	gsDPSetFogColor(84, 141, 212, 255),
-	gsDPSetRenderMode(0, 3356510680),
+	// gsDPSetRenderMode(0, 3356510680),
 	gsMoveWd(G_MW_FOG, 0, 119863772),
 	// gsSPGeometryMode(0, G_FOG),
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, TEXEL0, 0, 0, 0, COMBINED, 0, 0, 0, COMBINED),

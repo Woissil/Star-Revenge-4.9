@@ -214,11 +214,11 @@ const LevelScript local_objects_ssl_1_[] = {
 	OBJECT_WITH_ACTS(207, -4189, 4430, -6458, 0, 318, 0, 0x0,  bhvFloorSwitchAnimatesObject, 31),
 	OBJECT_WITH_ACTS(152, 451, 4200, -2094, 0, 0, 0, 0x0,  bhvShrink_Platform_MOP, 31),
 	OBJECT_WITH_ACTS(120, 4723, 124, -5994, 0, 0, 0, 0x0,  bhvRecoveryHeart, 31),
-//	OBJECT_WITH_ACTS(0, -15, 4, 12, 0, 0, 20, 27,  RM_Scroll_Texture, 31),
-//	OBJECT_WITH_ACTS(0, -15, 4, 204, 0, 0, 20, 28,  RM_Scroll_Texture, 31),
-//	OBJECT_WITH_ACTS(0, -17, 4, 6, 0, 0, 20, 29,  RM_Scroll_Texture, 31),
-//	OBJECT_WITH_ACTS(0, -15, 4, 222, 0, 0, 20, 30,  RM_Scroll_Texture, 31),
-//	OBJECT_WITH_ACTS(0, -8, 4, 237, 0, 0, 20, 31,  RM_Scroll_Texture, 31),
+//	OBJECT_WITH_ACTS(0, -15, 4, 15, 0, 0, 20, 27,  RM_Scroll_Texture, 31),
+//	OBJECT_WITH_ACTS(0, -15, 4, 15, 0, 0, 20, 28,  RM_Scroll_Texture, 31),
+//	OBJECT_WITH_ACTS(0, -17, 4, 15, 0, 0, 20, 29,  RM_Scroll_Texture, 31),
+//	OBJECT_WITH_ACTS(0, -15, 4, 15, 0, 0, 20, 30,  RM_Scroll_Texture, 31),
+//	OBJECT_WITH_ACTS(0, -8, 4, 15, 0, 0, 20, 31,  RM_Scroll_Texture, 31),
 	RETURN()
 };
 

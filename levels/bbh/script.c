@@ -256,12 +256,12 @@ OBJECT_WITH_ACTS(46,-3044,5101,-11908,0,0,0,0x10000, bhvCheckpoint_Flag_MOP,31),
 OBJECT_WITH_ACTS(46,-3044,5421,-11908,0,0,0,0x10000, bhvCheckpoint_Flag_MOP,31),
 OBJECT_WITH_ACTS(0,-1168,4879,-13359,0,142,0,0x0, bhvCoinFormation,31),
 OBJECT_WITH_ACTS(46,-3044,4843,-11908,0,0,0,0x10000, bhvCheckpoint_Flag_MOP,31),
-OBJECT_WITH_ACTS(0,2,5,34,0,0,20,17, RM_Scroll_Texture,31),
-OBJECT_WITH_ACTS(0,4,5,6,0,0,20,18, RM_Scroll_Texture,31),
-OBJECT_WITH_ACTS(0,-3,4,289,0,0,20,19, RM_Scroll_Texture,31),
-OBJECT_WITH_ACTS(0,-4,4,42,0,0,20,20, RM_Scroll_Texture,31),
-OBJECT_WITH_ACTS(0,2,5,162,0,0,20,21, RM_Scroll_Texture,31),
-OBJECT_WITH_ACTS(0,4,5,14,0,0,20,22, RM_Scroll_Texture,31),
+OBJECT_WITH_ACTS(0,2,5,15,0,0,20,17, RM_Scroll_Texture,31),
+OBJECT_WITH_ACTS(0,4,5,15,0,0,20,18, RM_Scroll_Texture,31),
+OBJECT_WITH_ACTS(0,-3,4,15,0,0,20,19, RM_Scroll_Texture,31),
+OBJECT_WITH_ACTS(0,-4,4,15,0,0,20,20, RM_Scroll_Texture,31),
+OBJECT_WITH_ACTS(0,2,5,15,0,0,20,21, RM_Scroll_Texture,31),
+OBJECT_WITH_ACTS(0,4,5,15,0,0,20,22, RM_Scroll_Texture,31),
 RETURN()
 };
 const LevelScript local_warps_bbh_1_[] = {

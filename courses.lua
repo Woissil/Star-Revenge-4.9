@@ -1,4 +1,4 @@
-function course_swap_sm64s() 
+function course_swap_sm64s()
 
     smlua_text_utils_course_acts_replace(COURSE_BOB, (" 1 DOUBTFUL CREEK TOWN"),	("GOTTA GET UP THAT RAMP!"),	("HIGH VIEW FROM THE DOOMED TOWN"),	("SCHROOMY-KICK'S"),	("CORRUPTED GRASS STROLL"),	("SLIPPERY STAR DASH"),	("DEEP DIVE IN THE SEWERS -GB-"))
 

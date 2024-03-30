@@ -4,11 +4,15 @@ level_table = { [12] = COURSE_BOB, [13] = COURSE_WF, [14] = COURSE_JRB, [15] = C
 
 --- @param obj Object
 function bhv_door_open_or_not_loop(obj)
-    if gNetworkPlayers[0].currLevelNum == LEVEL_CASTLE then
-        if save_file_get_course_star_count(get_current_save_file_num() - 1, level_table[obj.oBehParams >> 29] - 1) > 0 then
+    if gNetworkPlayers[0] and gNetworkPlayers[0].currLevelNum == LEVEL_CASTLE then
+        local saveFileNum = get_current_save_file_num() - 1
+        local courseIndex = obj.oBehParams and obj.oBehParams >> 29
+        local courseNum = courseIndex and level_table[courseIndex]
+        if courseNum and save_file_get_course_star_count(saveFileNum, courseNum - 1) > 0 then
             obj.oBehParams = 0
         end
     end
 end
+
 
 hook_behavior(id_bhvDoor, OBJ_LIST_SURFACE, false, nil, bhv_door_open_or_not_loop)

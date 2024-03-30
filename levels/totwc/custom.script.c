@@ -121,10 +121,10 @@ const LevelScript local_objects_totwc_1_[] = {
 	OBJECT_WITH_ACTS(137, -496, 1870, -1994, 0, 0, 0, 0x10000,  bhvExclamationBox, 31),
 	OBJECT_WITH_ACTS(137, -49, 1341, -8438, 0, 0, 0, 0x10000,  bhvExclamationBox, 31),
 	OBJECT_WITH_ACTS(0, 1074, 2040, 5495, 0, 180, 0, 0xa0000,  bhvSpinAirborneWarp, 31),
-	OBJECT_WITH_ACTS(0, 3, 5, 702, 0, 0, 20, 357,  RM_Scroll_Texture, 31),
-	OBJECT_WITH_ACTS(0, 3, 5, 1106, 0, 0, 20, 358,  RM_Scroll_Texture, 31),
-	OBJECT_WITH_ACTS(0, 3, 5, 171, 0, 0, 20, 359,  RM_Scroll_Texture, 31),
-	OBJECT_WITH_ACTS(0, 3, 5, 45, 0, 0, 20, 360,  RM_Scroll_Texture, 31),
+	OBJECT_WITH_ACTS(0, 3, 5, 15, 0, 0, 20, 357,  RM_Scroll_Texture, 31),
+	OBJECT_WITH_ACTS(0, 3, 5, 15, 0, 0, 20, 358,  RM_Scroll_Texture, 31),
+	OBJECT_WITH_ACTS(0, 3, 5, 15, 0, 0, 20, 359,  RM_Scroll_Texture, 31),
+	OBJECT_WITH_ACTS(0, 3, 5, 15, 0, 0, 20, 360,  RM_Scroll_Texture, 31),
 	RETURN()
 };
 
@@ -205,8 +205,8 @@ const LevelScript local_objects_totwc_2_[] = {
 	OBJECT_WITH_ACTS(137, 12917, 2538, -4571, 0, 0, 0, 0x50000,  bhvExclamationBox, 31),
 	OBJECT_WITH_ACTS(116, 15345, 4408, 1853, 0, 0, 0, 0x0,  bhvOneCoin, 31),
 	OBJECT_WITH_ACTS(212, 9417, 6374, -8017, 0, 0, 0, 0x0,  bhv1Up, 31),
-	OBJECT_WITH_ACTS(0, -10, 4, 165, 0, 0, 20, 361,  RM_Scroll_Texture, 31),
-	OBJECT_WITH_ACTS(0, 19, 5, 82, 0, 0, 20, 362,  RM_Scroll_Texture, 31),
+	OBJECT_WITH_ACTS(0, -10, 4, 15, 0, 0, 20, 361,  RM_Scroll_Texture, 31),
+	OBJECT_WITH_ACTS(0, 19, 5, 15, 0, 0, 20, 362,  RM_Scroll_Texture, 31),
 	RETURN()
 };
 

@@ -235,9 +235,9 @@ const LevelScript local_objects_wdw_1_[] = {
 	OBJECT_WITH_ACTS(124, -1094, -3075, 2940, 0, 104, 0, 0x900000,  bhvMessagePanel, 31),
 	OBJECT_WITH_ACTS(212, -3479, 4109, -2008, 0, 0, 0, 0x0,  bhv1Up, 31),
 	OBJECT_WITH_ACTS(0, 7499, 1760, 550, 0, 90, 0, 0x40000,  bhvCoinFormation, 31),
-	OBJECT_WITH_ACTS(0, 10, 5, 179, 0, 0, 20, 43,  RM_Scroll_Texture, 31),
-	OBJECT_WITH_ACTS(0, -15, 4, 69, 0, 0, 20, 44,  RM_Scroll_Texture, 31),
-	OBJECT_WITH_ACTS(0, 5, 5, 4, 0, 0, 20, 45,  RM_Scroll_Texture, 31),
+	OBJECT_WITH_ACTS(0, 10, 5, 15, 0, 0, 20, 43,  RM_Scroll_Texture, 31),
+	OBJECT_WITH_ACTS(0, -15, 4, 15, 0, 0, 20, 44,  RM_Scroll_Texture, 31),
+	OBJECT_WITH_ACTS(0, 5, 5, 15, 0, 0, 20, 45,  RM_Scroll_Texture, 31),
 	RETURN()
 };
 

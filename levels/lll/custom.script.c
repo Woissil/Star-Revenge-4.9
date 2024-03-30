@@ -211,13 +211,13 @@ const LevelScript local_objects_lll_1_[] = {
 	OBJECT_WITH_ACTS(0, 1841, 4372, 15508, 0, 0, 0, 0x60000,  bhvAirborneStarCollectWarp, 31),
 	OBJECT_WITH_ACTS(120, -1, 4217, 17260, 0, 0, 0, 0x0,  bhvRecoveryHeart, 31),
 	OBJECT_WITH_ACTS(212, 3087, 2536, -756, 0, 0, 0, 0x0,  bhv1Up, 31),
-	OBJECT_WITH_ACTS(0, -4, 4, 70, 0, 0, 20, 183,  RM_Scroll_Texture, 31),
-	OBJECT_WITH_ACTS(0, -4, 4, 246, 0, 0, 20, 184,  RM_Scroll_Texture, 31),
-	OBJECT_WITH_ACTS(0, -4, 4, 10, 0, 0, 20, 185,  RM_Scroll_Texture, 31),
-	OBJECT_WITH_ACTS(0, -4, 4, 26, 0, 0, 20, 186,  RM_Scroll_Texture, 31),
-	OBJECT_WITH_ACTS(0, -5, 4, 14, 0, 0, 20, 187,  RM_Scroll_Texture, 31),
-	OBJECT_WITH_ACTS(0, -4, 4, 33, 0, 0, 20, 188,  RM_Scroll_Texture, 31),
-	OBJECT_WITH_ACTS(0, -4, 4, 4, 0, 0, 20, 189,  RM_Scroll_Texture, 31),
+	OBJECT_WITH_ACTS(0, -4, 4, 15, 0, 0, 20, 183,  RM_Scroll_Texture, 31),
+	OBJECT_WITH_ACTS(0, -4, 4, 15, 0, 0, 20, 184,  RM_Scroll_Texture, 31),
+	OBJECT_WITH_ACTS(0, -4, 4, 15, 0, 0, 20, 185,  RM_Scroll_Texture, 31),
+	OBJECT_WITH_ACTS(0, -4, 4, 15, 0, 0, 20, 186,  RM_Scroll_Texture, 31),
+	OBJECT_WITH_ACTS(0, -5, 4, 15, 0, 0, 20, 187,  RM_Scroll_Texture, 31),
+	OBJECT_WITH_ACTS(0, -4, 4, 15, 0, 0, 20, 188,  RM_Scroll_Texture, 31),
+	OBJECT_WITH_ACTS(0, -4, 4, 15, 0, 0, 20, 189,  RM_Scroll_Texture, 31),
 	RETURN()
 };
 

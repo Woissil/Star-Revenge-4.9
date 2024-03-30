@@ -2,6 +2,8 @@
 -- description: Star Revenge 4.9 Ported by Woissil and Blocky
 -- incompatible: romhack
 
+gLevelValues.coinsRequiredForCoinStar = 512
+
 --cam--
 
 camera_set_use_course_specific_settings(false)
@@ -41,6 +43,19 @@ function bhv_custom_red_coin_star_loop(obj)
         obj.oAction = 1
     end
 end
+
+hook_event(HOOK_MARIO_UPDATE, function(m) m.numLives = 10 end)
+
+--NoD Code
+local once = true 
+hook_event(HOOK_MARIO_UPDATE,
+function(m)
+    if m.playerIndex ~= 0 then return end
+    if once then
+        m.numLives = 100
+        once = true
+    end
+end)
 
 -- These both need to be changed, though they share a lot of the same code so the function can be reused
 hook_behavior(id_bhvHiddenRedCoinStar, OBJ_LIST_LEVEL, false, nil, bhv_custom_red_coin_star_loop)

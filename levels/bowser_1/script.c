@@ -118,9 +118,9 @@ const LevelScript local_objects_bowser_1_1_[] = {
 	OBJECT_WITH_ACTS(0, -4526, 3174, -9168, 0, 180, 0, 0x0,  bhvFlamethrower, 31),
 	OBJECT_WITH_ACTS(0, -3930, 3324, -10305, 0, 0, 0, 0x0,  bhvFlamethrower, 31),
 	OBJECT_WITH_ACTS(46, 478, 1890, 1298, 0, 0, 0, 0x10000,  bhvCheckpoint_Flag_MOP, 31),
-	OBJECT_WITH_ACTS(0, -22, 4, 73, 0, 0, 20, 363,  RM_Scroll_Texture, 31),
-	OBJECT_WITH_ACTS(0, -22, 4, 319, 0, 0, 20, 364,  RM_Scroll_Texture, 31),
-	OBJECT_WITH_ACTS(0, 18, 5, 1168, 0, 0, 20, 365,  RM_Scroll_Texture, 31),
+	OBJECT_WITH_ACTS(0, -22, 4, 15, 0, 0, 20, 363,  RM_Scroll_Texture, 31),
+	OBJECT_WITH_ACTS(0, -22, 4, 15, 0, 0, 20, 364,  RM_Scroll_Texture, 31),
+	OBJECT_WITH_ACTS(0, 18, 5, 15, 0, 0, 20, 365,  RM_Scroll_Texture, 31),
 	RETURN()
 };
 

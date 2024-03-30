@@ -150,8 +150,8 @@ OBJECT_WITH_ACTS(194,6502,-98,2943,0,0,0,0x0, bhvHomingAmp,31),
 OBJECT_WITH_ACTS(212,2195,5160,2528,0,0,0,0x0, bhv1Up,31),
 OBJECT_WITH_ACTS(0,3230,3517,-1813,0,0,0,0x0, bhvCoinFormation,31),
 OBJECT_WITH_ACTS(0,-3265,4440,-5860,0,90,0,0x110000, bhvCoinFormation,31),
-OBJECT_WITH_ACTS(0,-10,4,5,0,0,20,165, RM_Scroll_Texture,31),
-OBJECT_WITH_ACTS(0,-3,4,63,0,0,20,166, RM_Scroll_Texture,31),
+OBJECT_WITH_ACTS(0,-10,4,12,0,0,20,165, RM_Scroll_Texture,31),
+OBJECT_WITH_ACTS(0,-3,4,12,0,0,20,166, RM_Scroll_Texture,31),
 RETURN()
 };
 const LevelScript local_warps_bitfs_1_[] = {
