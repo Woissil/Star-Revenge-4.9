@@ -1,0 +1,15 @@
+extern const GeoLayout jrbstar_geo[];
+extern Lights1 jrbstar_f3dlite_material_lights;
+extern u8 jrbstar__11_ci8[];
+extern u8 jrbstar__11_pal_rgba16[];
+extern u8 jrbstar_eye_ia8[];
+extern Vtx jrbstar_000_displaylist_mesh_layer_1_vtx_0[12];
+extern Gfx jrbstar_000_displaylist_mesh_layer_1_tri_0[];
+extern Vtx jrbstar_001_displaylist_mesh_layer_5_vtx_0[8];
+extern Gfx jrbstar_001_displaylist_mesh_layer_5_tri_0[];
+extern Gfx mat_jrbstar_f3dlite_material_037[];
+extern Gfx mat_revert_jrbstar_f3dlite_material_037[];
+extern Gfx mat_jrbstar_f3dlite_material[];
+extern Gfx mat_revert_jrbstar_f3dlite_material[];
+extern Gfx jrbstar_000_displaylist_mesh_layer_1[];
+extern Gfx jrbstar_001_displaylist_mesh_layer_5[];

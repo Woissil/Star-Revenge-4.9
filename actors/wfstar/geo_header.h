@@ -1,0 +1,15 @@
+extern const GeoLayout wfstar_geo[];
+extern Lights1 wfstar_f3dlite_material_lights;
+extern u8 wfstar__4_ci8[];
+extern u8 wfstar__4_pal_rgba16[];
+extern u8 wfstar_eye_ia8[];
+extern Vtx wfstar_000_displaylist_mesh_layer_1_vtx_0[12];
+extern Gfx wfstar_000_displaylist_mesh_layer_1_tri_0[];
+extern Vtx wfstar_001_displaylist_mesh_layer_5_vtx_0[8];
+extern Gfx wfstar_001_displaylist_mesh_layer_5_tri_0[];
+extern Gfx mat_wfstar_f3dlite_material_037[];
+extern Gfx mat_revert_wfstar_f3dlite_material_037[];
+extern Gfx mat_wfstar_f3dlite_material[];
+extern Gfx mat_revert_wfstar_f3dlite_material[];
+extern Gfx wfstar_000_displaylist_mesh_layer_1[];
+extern Gfx wfstar_001_displaylist_mesh_layer_5[];

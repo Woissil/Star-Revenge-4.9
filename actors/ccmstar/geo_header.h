@@ -1,0 +1,14 @@
+extern const GeoLayout ccmstar_geo[];
+extern Lights1 ccmstar_f3dlite_material_lights;
+extern u8 ccmstar__14_i8[];
+extern u8 ccmstar_eye_ia8[];
+extern Vtx ccmstar_000_displaylist_mesh_layer_1_vtx_0[12];
+extern Gfx ccmstar_000_displaylist_mesh_layer_1_tri_0[];
+extern Vtx ccmstar_001_displaylist_mesh_layer_5_vtx_0[8];
+extern Gfx ccmstar_001_displaylist_mesh_layer_5_tri_0[];
+extern Gfx mat_ccmstar_f3dlite_material_037[];
+extern Gfx mat_revert_ccmstar_f3dlite_material_037[];
+extern Gfx mat_ccmstar_f3dlite_material[];
+extern Gfx mat_revert_ccmstar_f3dlite_material[];
+extern Gfx ccmstar_000_displaylist_mesh_layer_1[];
+extern Gfx ccmstar_001_displaylist_mesh_layer_5[];
