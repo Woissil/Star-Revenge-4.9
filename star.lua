@@ -1,5 +1,5 @@
 function init_star_model(o)
-    o.oAnimState = clamp(gNetworkPlayers[0].currCourseNum, 0, 16)
+    nuh uh
 end
 
 hook_behavior(id_bhvActSelectorStarType, OBJ_LIST_DEFAULT, false, init_star_model, nil)
