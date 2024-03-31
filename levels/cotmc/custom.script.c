@@ -52,6 +52,12 @@ const LevelScript level_cotmc_entry[] = {
 	LOAD_MODEL_FROM_GEO(36,  castle_door_3_stars_geo),
 	LOAD_MODEL_FROM_GEO(37,  key_door_geo),
 	LOAD_MODEL_FROM_GEO(38,  castle_door_geo),
+	LOAD_MODEL_FROM_GEO(7, box7star),
+	LOAD_MODEL_FROM_GEO(8, boxstar),
+	LOAD_MODEL_FROM_GEO(9, wingbox),
+	LOAD_MODEL_FROM_GEO(10, vanishbox),
+	LOAD_MODEL_FROM_GEO(11, metalbox),
+	LOAD_MODEL_FROM_GEO(12, warpbox),
 	// LOAD_MODEL_FROM_GEO(131, 0x0404fe00),
 	// LOAD_MODEL_FROM_DL(132, 0x08025f08, 4),
 	// LOAD_MODEL_FROM_GEO(137, 0x04050000),
@@ -85,7 +91,7 @@ const LevelScript local_area_cotmc_2_[] = {
 
 const LevelScript local_objects_cotmc_2_[] = {
 	OBJECT_WITH_ACTS(0, 0, 72, 6, 0, 180, 0, 0xa0000,  bhvSpinAirborneWarp, 31),
-	OBJECT_WITH_ACTS(137, -81, 9724, 12103, 0, 0, 0, 0x80000,  bhvExclamationBox, 31),
+	OBJECT_WITH_ACTS(8, -81, 9724, 12103, 0, 0, 0, 0x80000,  bhvExclamationBox, 31),
 	OBJECT_WITH_ACTS(46, -3140, 5190, 6346, 0, 90, 0, 0x0,  bhvCheckpoint_Flag_MOP, 31),
 	OBJECT_WITH_ACTS(46, -4385, 4955, -9761, 0, -90, 0, 0x0,  bhvCheckpoint_Flag_MOP, 31),
 	OBJECT_WITH_ACTS(46, 5101, 4558, 5617, 0, 0, 0, 0x0,  bhvCheckpoint_Flag_MOP, 31),
