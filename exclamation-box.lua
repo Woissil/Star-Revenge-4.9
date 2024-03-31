@@ -77,7 +77,7 @@ local sExclamationBoxContents = {
     { 17, 0, 0, E_MODEL_MARIOS_METAL_CAP,  id_bhvMetalCap },
     { 18, 0, 0, E_MODEL_YELLOW_COIN,  id_bhvSingleCoinGetsSpawned },
     { 19, 0, 0, E_MODEL_NONE,  id_bhvThreeCoinsSpawn },
-    { 20, 0, 0, E_MODEL_NONE,  id_bhvWfBreakableWallRight },
+    { 20, 0, 0, E_MODEL_SHRINK_PLATFORM,  id_bhvShrink_Platform_MOP },
     { 21, 0, 0, E_MODEL_KOOPA_SHELL,  id_bhvKoopaShell },
     { 99, 0, 0, E_MODEL_NONE, nil }
 }
