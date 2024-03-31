@@ -76,3 +76,8 @@ vec3f_set(starPositions.BigBullyTrioStarPos, -1754.0, 223.0, 5773.0)
 vec3f_set(starPositions.TuxieMotherStarPos, 3130.0, 845.0, 3256.0)
 vec3f_set(starPositions.KoopaBobStarPos, -2091.0, 2790.0, -1464.0)
 vec3f_set(starPositions.KoopaThiStarPos, -5074.0, 822.0, 8084.0)
+
+-- disable caps in cap courses
+gLevelValues.wingCapDurationTotwc = 1
+gLevelValues.vanishCapDurationVcutm = 1
+gLevelValues.metalCapDurationCotmc = 1
