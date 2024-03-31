@@ -1,5 +1,5 @@
 -- name: \\#0035ff\\Star Revenge 4.9:\\#8500af\\ Adulterated Reality
--- description: Star Revenge 4.9 Ported by Woissil and Blocky
+-- description: Star Revenge 4.9 Adulterated Reality is a romhack created by Brodute\n\n\nThere are 150 stars.\n\nPorted to Coop by Woissil, Blocky\n\nContributors: Andre\nI'mYourCat\nAgent X\nLeonitz\nFlipFlop Bell\nSarah/TikalSM64\nDrahnokks\nSunk\nCoolioKid956\nFearl\n\nTheir contributions are in the contributor file
 -- incompatible: romhack
 
 gLevelValues.coinsRequiredForCoinStar = 512

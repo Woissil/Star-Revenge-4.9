@@ -1,23 +1,21 @@
-This file will serve me very much to know who did what, So that at the end I credit you
+Every Contributors
 
 - Sunk : MOPs Rework, RedCoins requirements, 45 Degree Wallkicks
 
 - Flipflop_bell : Cap Timer
 
-- ImYourCat : RR Fix, Actors (Goomba, Koopa, Door, coin, bobomb, king bobomb, amp, heart, whomp, Power Meter)
+- ImYourCat : TTC and RR Fix, Actors (Goomba, Koopa, Door, coin, bobomb, king bobomb, amp, heart, whomp, Power Meter, Thwomp, chuckya)
 
 - AgentX : Exclamation Box
 
 - André : Yellow Switch and Box (door system too)
- 
+
+- Leonitz : Castle Ground Fog Fix 
+
 - Drahnokks : Yellow Switch Code ported to C
 
 - Cooliokid 956 : Scrollings Textures / a bit of the door system
 
-- 
+- Fearl : Box Model for content and Brodute Model
 
-- 
-
-- 
-
--
+- Sarah / TikalSM64 : HUD + Mod Name
