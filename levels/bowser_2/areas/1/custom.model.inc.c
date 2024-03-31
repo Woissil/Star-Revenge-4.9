@@ -2122,7 +2122,7 @@ Gfx DL_bowser_2_1_0xe011fe0[] = {
 	gsSPLight(&Light_bowser_2_1_0xe000008.col, 1),
 	gsDPSetCycleType(G_CYC_2CYCLE),
 	gsDPSetFogColor(0, 0, 0, 255),
-	gsDPSetRenderMode(0, 3356510680),
+	// gsDPSetRenderMode(0, 3356510680),
 	gsMoveWd(G_MW_FOG, 0, 239727287),
 	// gsSPGeometryMode(0, G_FOG),
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, TEXEL0, 0, 0, 0, COMBINED, 0, 0, 0, COMBINED),

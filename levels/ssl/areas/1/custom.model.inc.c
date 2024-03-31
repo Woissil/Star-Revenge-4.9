@@ -42847,7 +42847,7 @@ Gfx DL_ssl_1_0xe0ade10[] = {
 	gsSPLight(&Light_ssl_1_0xe000000.col, 2),
 	gsSPLight(&Light_ssl_1_0xe000008.col, 1),
 	gsDPSetCycleType(G_CYC_2CYCLE),
-	gsDPSetRenderMode(0, 3356510680),
+	// gsDPSetRenderMode(0, 3356510680),
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, TEXEL0, 0, ENVIRONMENT, 0, 0, 0, 0, COMBINED, 0, 0, 0, COMBINED),
 	gsDPSetEnvColor(98, 3, 20, 232),
 	gsDPSetTextureImage(0, 2, 1, ssl_1__texture_0E01C020),
