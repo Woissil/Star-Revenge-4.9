@@ -846,7 +846,7 @@ Gfx DL_pss_2_0xe006e58[] = {
 	gsSPLight(&Light_pss_2_0xe000008.col, 1),
 	gsDPSetCycleType(G_CYC_2CYCLE),
 	gsDPSetFogColor(63, 49, 81, 255),
-	gsDPSetRenderMode(0, 3356510680),
+	// gsDPSetRenderMode(0, 3356510680),
 	gsMoveWd(G_MW_FOG, 0, 83950592),
 	// gsSPGeometryMode(0, G_FOG),
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, TEXEL0, 0, ENVIRONMENT, 0, 0, 0, 0, COMBINED, 0, 0, 0, COMBINED),

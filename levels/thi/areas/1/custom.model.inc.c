@@ -67302,7 +67302,7 @@ Gfx DL_thi_1_0xe112a88[] = {
 	gsSPLight(&Light_thi_1_0xe000008.col, 1),
 	gsDPSetCycleType(G_CYC_2CYCLE),
 	gsDPSetFogColor(0, 0, 0, 255),
-	gsDPSetRenderMode(0, 3356510680),
+	// gsDPSetRenderMode(0, 3356510680),
 	gsMoveWd(G_MW_FOG, 0, 419489792),
 	gsSPGeometryMode(0, G_FOG),
 	//gsSPSetOtherMode(186, 46, 2, 0),
