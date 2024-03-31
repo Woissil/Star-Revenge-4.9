@@ -42178,7 +42178,7 @@ Gfx DL_ssl_1_0xe0972d0[] = {
 	gsSPVertex(VB_ssl_1_0xe08a490, 6, 0),
 	gsSP2Triangles(0, 1, 2, 0, 3, 4, 5, 0),
 	gsDPSetCycleType(G_CYC_1CYCLE),
-	gsDPSetRenderMode(0, 4464760),
+	// gsDPSetRenderMode(0, 4464760),
 	gsDPSetCombineLERP(0, 0, 0, SHADE, 0, 0, 0, SHADE, 0, 0, 0, SHADE, 0, 0, 0, SHADE),
 	gsSPTexture(65535, 65535, 0, 0, 0),
 	gsSPEndDisplayList(),

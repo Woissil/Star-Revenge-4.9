@@ -65252,7 +65252,7 @@ Gfx DL_thi_1_0xe0e4610[] = {
 	gsSP2Triangles(0, 1, 2, 0, 2, 1, 3, 0),
 	gsSP2Triangles(4, 2, 3, 0, 0, 2, 4, 0),
 	gsDPSetCycleType(G_CYC_1CYCLE),
-	gsDPSetRenderMode(0, 4464760),
+	// gsDPSetRenderMode(0, 4464760),
 	gsSPGeometryMode(G_FOG, 0),
 	gsDPSetCombineLERP(0, 0, 0, SHADE, 0, 0, 0, SHADE, 0, 0, 0, SHADE, 0, 0, 0, SHADE),
 	gsSPTexture(65535, 65535, 0, 0, 0),

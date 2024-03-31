@@ -64015,7 +64015,7 @@ Gfx DL_ttm_1_0xe0dc040[] = {
 	gsSPVertex(VB_ttm_1_0xe0dc010, 3, 0),
 	gsSP1Triangle(0, 1, 2, 0),
 	gsDPSetCycleType(G_CYC_1CYCLE),
-	gsDPSetRenderMode(0, 4464760),
+	// gsDPSetRenderMode(0, 4464760),
 	gsSPGeometryMode(G_FOG, 0),
 	gsDPSetCombineLERP(0, 0, 0, SHADE, 0, 0, 0, SHADE, 0, 0, 0, SHADE, 0, 0, 0, SHADE),
 	gsSPTexture(65535, 65535, 0, 0, 0),

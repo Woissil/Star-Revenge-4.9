@@ -40796,7 +40796,7 @@ Gfx DL_rr_1_0xe07d1c0[] = {
 	gsSPVertex(VB_rr_1_0xe07d160, 6, 0),
 	gsSP2Triangles(0, 1, 2, 0, 3, 4, 5, 0),
 	gsDPSetCycleType(G_CYC_1CYCLE),
-	gsDPSetRenderMode(0, 4464760),
+	// gsDPSetRenderMode(0, 4464760),
 	gsSPGeometryMode(G_FOG, 0),
 	gsDPSetCombineMode(G_CC_SHADE, G_CC_SHADE),
 	gsSPTexture(65535, 65535, 0, 0, 0),
