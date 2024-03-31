@@ -1,7 +1,7 @@
 extern const GeoLayout bbhstar_geo[];
 extern Lights1 bbhstar_f3dlite_material_lights;
-extern u8 bbhstar__9_ci8[];
-extern u8 bbhstar__9_pal_rgba16[];
+extern u8 bbhstar__10_ci8[];
+extern u8 bbhstar__10_pal_rgba16[];
 extern u8 bbhstar_eye_ia8[];
 extern Vtx bbhstar_000_displaylist_mesh_layer_1_vtx_0[12];
 extern Gfx bbhstar_000_displaylist_mesh_layer_1_tri_0[];
