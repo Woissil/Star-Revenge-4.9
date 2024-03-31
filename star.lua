@@ -33,8 +33,8 @@ starStateTable = {
 }
 
 function init_star_model(o)
-    if gNetworkPlayers[0].currLevelNum and starStateTable[gNetworkPlayers[0].currLevelNum] then
-        obj_set_model_extended(o, starStateTable[gNetworkPlayers[0].currLevelNum])
+    if gNetworkPlayers[0].currCourseNum and starStateTable[gNetworkPlayers[0].currCourseNum] then
+        obj_set_model_extended(o, starStateTable[gNetworkPlayers[0].currCourseNum])
     if obj_has_model_extended(o, E_MODEL_TRANSPARENT_STAR) == 0 then
         obj_set_model_extended(o, starStateTable[gNetworkPlayers[0].currCourseNum])
         end
