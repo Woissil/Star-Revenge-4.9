@@ -51,7 +51,7 @@ local sExclamationBoxHitbox = {
     hurtboxHeight = 30
 }
 
-local cap_flags = { [0] = SAVE_FLAG_HAVE_WING_CAP, [1] = SAVE_FLAG_HAVE_METAL_CAP, [2] = SAVE_FLAG_HAVE_VANISH_CAP }
+local cap_flags = { [0] = SAVE_FLAG_HAVE_WING_CAP, [1] = SAVE_FLAG_HAVE_METAL_CAP, [2] = SAVE_FLAG_HAVE_VANISH_CAP, [3] = 1 << 29 }
 
 ---@class ExclamationBoxContents
 
@@ -260,22 +260,23 @@ local EXCLAMATION_BOX_ACT_AWAITING_DELETION = 6
 -- Initializes the exclamation box
 --- @param obj Object
 local function exclamation_box_act_initialize(obj)
-    obj.oExclamationBoxForce = 0
-    -- A 2nd byte of 0, 1, and 2 refer to different cap blocks
-    if obj.oBehParams2ndByte < 3 then
-        obj.oAnimState = obj.oBehParams2ndByte
-        -- Determines if cap switches have been pressed
-        if (save_file_get_flags() & cap_flags[obj.oBehParams2ndByte]) ~= 0
-            -- If a cap box has a first byte, it will always be active
-            or ((obj.oBehParams >> 24) & 0xFF) ~= 0 then
-            obj.oAction = EXCLAMATION_BOX_ACT_IDLE
-        else
-            obj.oAction = EXCLAMATION_BOX_ACT_NEED_CAPS
-        end
-    else
-        -- Yellow block
+    if obj.oBehParams2ndByte > 3 then
         obj.oAnimState = 3
-        obj.oAction = EXCLAMATION_BOX_ACT_IDLE
+    else
+        obj.oAnimState = obj.oBehParams2ndByte
+    end
+    --vanilla non-cap option
+    djui_chat_message_create(obj.oBehParams2ndByte .. "")
+    if obj.oBehParams2ndByte > 2 and switch_functionality[obj.oBehParams2ndByte] == nil then
+        obj.oAction = 2
+    --vanilla cap option
+    elseif cap_flags[obj.oBehParams2ndByte] and save_file_get_flags() & cap_flags[obj.oBehParams2ndByte] ~= 0 then
+        obj.oAction = 2
+    --our cap option
+    elseif switch_functionality[obj.oBehParams2ndByte] and switch_functionality[obj.oBehParams2ndByte][2]() then
+        obj.oAction = 2
+    else
+        obj.oAction = 1
     end
 end
 
