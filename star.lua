@@ -33,13 +33,13 @@ starStateTable = {
 }
 
 function init_star_model(o)
-    local starId = (o.oBehParams >> 24) & 0xFF
-    local currentLevelStarFlags = save_file_get_star_flags(get_current_save_file_num() - 1, gNetworkPlayers[0].currCourseNum - 1)
-    
-    if gNetworkPlayers[0].currLevelNum and starStateTable[gNetworkPlayers[0].currLevelNum] then
-        obj_set_model_extended(o, starStateTable[gNetworkPlayers[0].currLevelNum])
+    if obj_has_model_extended(o, E_MODEL_TRANSPARENT_STAR) == 0 then
+        obj_set_model_extended(o, starStateTable[gNetworkPlayers[0].currCourseNum])
     end
 end
 
 hook_behavior(id_bhvActSelectorStarType, OBJ_LIST_DEFAULT, false, init_star_model, nil)
-hook_behavior(id_bhvStar, OBJ_LIST_LEVEL, false, init_star_model, nil)
+hook_behavior(id_bhvStar, OBJ_LIST_GENACTOR, false, nil, init_star_model)
+hook_behavior(id_bhvCelebrationStar, OBJ_LIST_GENACTOR, false, nil, init_star_model)
+hook_behavior(id_bhvStarSpawnCoordinates, OBJ_LIST_GENACTOR, false, nil, init_star_model)
+hook_behavior(id_bhvSpawnedStar, OBJ_LIST_GENACTOR, false, nil, init_star_model)
