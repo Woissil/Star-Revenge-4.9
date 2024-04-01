@@ -71,7 +71,7 @@ local sExclamationBoxContents = {
     { 11, 0, 2, E_MODEL_STAR,  id_bhvSpawnedStar },
     { 12, 0, 3, E_MODEL_STAR,  id_bhvSpawnedStar },
     { 13, 0, 4, E_MODEL_STAR,  id_bhvSpawnedStar },
-    { 14, 0, 6, E_MODEL_WSTAR,  id_bhvSpawnedStar },
+    { 14, 0, 6, E_MODEL_STAR,  id_bhvSpawnedStar },
     { 15, 0, 0, E_MODEL_MARIOS_WING_CAP,  id_bhvWingCap },
     { 16, 0, 0, E_MODEL_MARIOS_WING_CAP,  id_bhvWingCap },
     { 17, 0, 0, E_MODEL_MARIOS_METAL_CAP,  id_bhvMetalCap },
@@ -266,7 +266,7 @@ local function exclamation_box_act_initialize(obj)
         obj.oAnimState = obj.oBehParams2ndByte
     end
     --vanilla non-cap option
-    djui_chat_message_create(obj.oBehParams2ndByte .. "")
+    -- djui_chat_message_create(obj.oBehParams2ndByte .. "")
     if obj.oBehParams2ndByte > 2 and switch_functionality[obj.oBehParams2ndByte] == nil then
         obj.oAction = 2
     --vanilla cap option

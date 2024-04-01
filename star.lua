@@ -31,16 +31,25 @@ starStateTable = {
     [LEVEL_TTC] = E_MODEL_TTCSTAR,
     [LEVEL_RR] = E_MODEL_RRSTAR,
 }
+
+---@param obj Object
 ---@type NetworkPlayer
 local np = gNetworkPlayers[0]
 function init_star_model(o)
+    local obox = obj_get_first_with_behavior_id(id_bhvExclamationBox)
     if obj_has_model_extended(o, E_MODEL_TRANSPARENT_STAR) == 0 then
         if obj_has_behavior_id(o, id_bhvActSelectorStarType) == 0 then
             obj_set_model_extended(o, starStateTable[np.currLevelNum])
-        end
 
         if obj_has_behavior_id(o, id_bhvActSelectorStarType) ~= 0 and starStateTable[np.currLevelNum] ~= nil then
             obj_set_model_extended(o, starStateTable[np.currLevelNum])
+        
+            if obj ~= obox then
+                if obj.oBehParams2ndByte > 14 and obj_has_behavior_id(obj, id_bhvSpawnedStar) == 1 then
+                    obj_set_model_extended(o, E_MODEL_WSTAR)
+                    end
+                end
+            end
         end
     end
 end
