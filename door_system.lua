@@ -7,7 +7,6 @@ save_file = get_current_save_file_num() - 1
 --- @param obj Object
 function bhv_door_open_or_not_loop(obj)
     course = (obj.oBehParams >> 24) - 11
-    djui_chat_message_create(tostring(course))
     stars = save_file_get_star_flags(save_file, course - 1)
     for star = 0, 6 do
         if stars & (1 << star) ~= 0 then -- check if he got a star in one of the level in the table

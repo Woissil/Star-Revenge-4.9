@@ -31,6 +31,10 @@ movtexqc_register('wf_1_Movtex_0',                LEVEL_WF, 1, 0)
 ---Small Functions---
 ---------------------
 
+save_file_set_flags(SAVE_FLAG_HAVE_METAL_CAP)
+save_file_set_flags(SAVE_FLAG_HAVE_VANISH_CAP)
+save_file_set_flags(SAVE_FLAG_HAVE_WING_CAP)
+
 function set_dialog_color_to_blue()
     set_dialog_override_color(25, 28, 97, 180, 255, 255, 255, 255)
 end
