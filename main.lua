@@ -57,6 +57,18 @@ function(m)
     end
 end)
 
+function change_vanish_floor(m)
+    if m.playerIndex ~= 0 then return end  
+        if (m.flags & MARIO_VANISH_CAP ~= 0 and m.floor.type == SURFACE_VANISH_CAP_WALLS) then
+            m.floor.type = SURFACE_INTANGIBLE
+            if (m.floor.type == SURFACE_INTANGIBLE) then
+        m.floor.type = SURFACE_VANISH_CAP_WALLS
+        end
+    end
+end
+   
+hook_event(HOOK_MARIO_UPDATE, change_vanish_floor)
+
 -- These both need to be changed, though they share a lot of the same code so the function can be reused
 hook_behavior(id_bhvHiddenRedCoinStar, OBJ_LIST_LEVEL, false, nil, bhv_custom_red_coin_star_loop)
 hook_behavior(id_bhvBowserCourseRedCoinStar, OBJ_LIST_LEVEL, false, nil, bhv_custom_red_coin_star_loop)

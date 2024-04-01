@@ -4,7 +4,7 @@ E_MODEL_JRBSTAR = smlua_model_util_get_id("jrbstar_geo")
 E_MODEL_CCMSTAR = smlua_model_util_get_id("ccmstar_geo")
 E_MODEL_BBHSTAR = smlua_model_util_get_id("bbhstar_geo")
 E_MODEL_HMCSTAR = smlua_model_util_get_id("hmcstar_geo")
-E_MODEL_LLLSTAR = smlua_model_util_get_id("llstar_geo")
+E_MODEL_LLLSTAR = smlua_model_util_get_id("llLstar_geo")
 E_MODEL_SSLSTAR = smlua_model_util_get_id("sslstar_geo")
 E_MODEL_DDDSTAR = smlua_model_util_get_id("dddstar_geo")
 E_MODEL_SLSTAR = smlua_model_util_get_id("slstar_geo")
@@ -43,12 +43,6 @@ function init_star_model(o)
 
         if obj_has_behavior_id(o, id_bhvActSelectorStarType) ~= 0 and starStateTable[np.currLevelNum] ~= nil then
             obj_set_model_extended(o, starStateTable[np.currLevelNum])
-        
-            if obj ~= obox then
-                if obj.oBehParams2ndByte > 14 and obj_has_behavior_id(obj, id_bhvSpawnedStar) == 1 then
-                    obj_set_model_extended(o, E_MODEL_WSTAR)
-                    end
-                end
             end
         end
     end
