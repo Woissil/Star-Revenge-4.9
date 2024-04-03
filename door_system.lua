@@ -8,9 +8,11 @@ save_file = get_current_save_file_num() - 1
 function bhv_door_open_or_not_loop(obj)
     course = (obj.oBehParams >> 24) - 11
     stars = save_file_get_star_flags(save_file, course - 1)
-    for star = 0, 6 do
-        if stars & (1 << star) ~= 0 then -- check if he got a star in one of the level in the table
-            obj.oBehParams = 0
+    if gNetworkPlayers[0].currLevelNum == LEVEL_CASTLE and gNetworkPlayers[0].currAreaIndex == 1 then
+        for star = 0, 6 do
+            if stars & (1 << star) ~= 0 then -- check if he got a star in one of the level in the table
+                obj.oBehParams = 0
+            end
         end
     end
 end
