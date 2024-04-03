@@ -7,11 +7,12 @@ local function for_each_object_with_behavior(behavior, func_f)
 end
 
 function warp_loop(o)
+    djui_chat_message_create(tostring(o.oBehParams >> 16))
     if ((o.oBehParams >> 8) & 0xff) == 145 then
         if save_file_get_total_star_count(get_current_save_file_num() - 1, 1 - 1, 25 - 1) >= 145 then
-            o.oBehParams2ndByte = 2
-    else
-        o.oBehParams2ndByte = 10
+            o.oBehParams = o.oBehParams | (2 << 16)
+        else
+            o.oBehParams = o.oBehParams | (10 << 16)
         end
     end
 end

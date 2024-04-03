@@ -121,7 +121,7 @@ const LevelScript local_objects_pss_1_[] = {
 };
 
 const LevelScript local_warps_pss_1_[] = {
-	WARP_NODE(10, 9, 1, 0, 0),
+	WARP_NODE(10, 27, 1, 4, 0),
 	WARP_NODE(0, 27, 1, 0, 0),
 	WARP_NODE(1, 27, 5, 10, 0),
 	WARP_NODE(2, 0x1b, 3, 10, 0),
