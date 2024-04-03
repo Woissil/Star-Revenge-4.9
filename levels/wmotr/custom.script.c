@@ -245,6 +245,7 @@ const LevelScript local_objects_wmotr_2_[] = {
 	OBJECT_WITH_ACTS(180, -14619, 4428, 15101, 0, 0, 0, 0x0,  bhvFireSpitter, 31),
 	OBJECT_WITH_ACTS(180, -10481, 2664, 15627, 0, 0, 0, 0x0,  bhvFireSpitter, 31),
 	OBJECT_WITH_ACTS(152, 19158, 13440, -11195, 0, 0, 0, 0x0,  bhvShrink_Platform_MOP, 31),
+	OBJECT_WITH_ACTS(152, 19700, 13400, -11500, 0, 0, 0, 0x0,  bhvShrink_Platform_MOP, 31),
 	OBJECT_WITH_ACTS(152, 19939, 13440, -10745, 0, 0, 0, 0x0,  bhvShrink_Platform_MOP, 31),
 	OBJECT_WITH_ACTS(0, -10, 4, 15, 0, 0, 20, 366,  RM_Scroll_Texture, 31),
 	OBJECT_WITH_ACTS(0, -18, 4, 15, 0, 0, 20, 367,  RM_Scroll_Texture, 31),
