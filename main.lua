@@ -3,6 +3,7 @@
 -- incompatible: romhack
 
 gLevelValues.coinsRequiredForCoinStar = 512
+gBehaviorValues.KingBobombFVel = 2048
 
 --cam--
 
