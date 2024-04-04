@@ -4,11 +4,11 @@ Every Contributors
 
 - Flipflop_bell : Cap Timer
 
-- ImYourCat : TTC and RR Fix, Actors (Goomba, Koopa, Door, coin, bobomb, king bobomb, amp, heart, whomp, Power Meter, Thwomp, chuckya)
+- ImYourCat : TTC and RR Fix, All of custom actors, Door system, Star model system, B2 warp nodes, PSS warp system
 
 - AgentX : Exclamation Box
 
-- André : Yellow Switch and Box (door system too)
+- André : Yellow Switch and Box 
 
 - Leonitz : Castle Ground Fog Fix 
 
